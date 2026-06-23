@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل تثبيت wacli وربطه بمساعد ذكاء اصطناعي · Install wacli & connect an AI agent</title>
+<style>
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Regular.woff2') format('woff2');
+    font-weight:400;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Medium.woff2') format('woff2');
+    font-weight:500;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Bold.woff2') format('woff2');
+    font-weight:700;font-style:normal;font-display:swap;
+  }
+  :root{
+    --bg:#0f1614;
+    --panel:#16211d;
+    --panel-2:#1c2a25;
+    --line:#2a3a34;
+    --text:#e7efeb;
+    --muted:#9fb3ac;
+    --accent:#25d366;
+    --accent-2:#128c5a;
+    --code-bg:#0b1210;
+    --code-text:#d6f5e3;
+    --en:#7fd1a8;
+    --radius:16px;
+    --serif:'Thmanyah Serif Text', Georgia, 'Times New Roman', serif;
+    --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--serif);
+    line-height:1.95;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  /* Header */
+  header.hero{
+    text-align:center;
+    padding:52px 24px 40px;
+    background:radial-gradient(120% 140% at 50% 0%, #1c2a25 0%, var(--bg) 70%);
+    border-bottom:1px solid var(--line);
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(37,211,102,.12);
+    color:var(--accent);
+    border:1px solid rgba(37,211,102,.3);
+    padding:6px 14px;border-radius:999px;
+    font-size:14px;font-weight:500;margin-bottom:20px;font-family:var(--mono);
+  }
+  h1{font-size:33px;font-weight:700;margin:0 0 6px;line-height:1.45}
+  .h1-en{display:block;font-size:19px;color:var(--en);font-weight:400;font-style:italic;direction:ltr;margin-top:8px}
+  .sub{color:var(--muted);max-width:640px;margin:16px auto 0;font-size:17px}
+  /* Intro */
+  .intro{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px 26px;margin:28px 0;
+  }
+  .intro p{margin:0 0 10px}
+  .intro p:last-child{margin:0}
+  /* Prereq */
+  .prereq{
+    background:var(--panel-2);border:1px dashed var(--line);
+    border-radius:var(--radius);padding:20px 26px;margin:24px 0 8px;
+  }
+  .prereq h3{margin:0 0 12px;font-size:19px;display:flex;gap:8px;align-items:center}
+  .prereq ul{margin:0;padding-inline-start:22px}
+  .prereq li{margin-bottom:8px}
+  .en-tag{color:var(--en);direction:ltr;display:inline-block;font-size:14px;font-family:var(--mono)}
+  /* Step cards */
+  .step{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px;margin:18px 0;
+    position:relative;
+  }
+  .step-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:8px}
+  .num{
+    flex:0 0 auto;width:40px;height:40px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#06140d;font-weight:700;font-size:19px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);
+  }
+  .step h2{font-size:22px;margin:5px 0 0;font-weight:700}
+  .step h2 .en{display:block;font-size:15px;color:var(--en);font-weight:400;font-style:italic;direction:ltr;margin-top:3px}
+  .step p{margin:11px 0;color:#cfe0d9}
+  .step p.note{
+    color:var(--muted);font-size:16px;
+    border-inline-start:3px solid var(--accent-2);
+    padding-inline-start:13px;margin-top:14px;
+  }
+  /* Code block */
+  .code{
+    position:relative;direction:ltr;text-align:left;
+    background:var(--code-bg);border:1px solid var(--line);
+    border-radius:12px;margin:14px 0;overflow:hidden;
+  }
+  .code pre{
+    margin:0;padding:16px 18px;overflow-x:auto;
+    font-family:var(--mono);font-size:14px;
+    color:var(--code-text);line-height:1.7;
+  }
+  .copy{
+    position:absolute;top:8px;inset-inline-end:8px;
+    background:var(--panel-2);color:var(--muted);
+    border:1px solid var(--line);border-radius:8px;
+    padding:5px 12px;font-size:13px;cursor:pointer;
+    font-family:var(--serif);transition:.15s;
+  }
+  .copy:hover{color:var(--text);border-color:var(--accent-2)}
+  .copy.done{color:var(--accent);border-color:var(--accent)}
+  /* Agent grid */
+  .agents{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .agent{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .agent h4{margin:0 0 6px;font-size:17px}
+  .agent h4 .en{color:var(--en);font-family:var(--mono);font-size:13px;font-style:normal}
+  .agent p{font-size:15.5px;margin:6px 0;color:#cfe0d9}
+  .prompt-ex{
+    background:var(--code-bg);border:1px solid var(--line);border-radius:10px;
+    padding:11px 15px;margin:8px 0;font-size:16px;color:var(--code-text);
+  }
+  .prompt-ex .lbl{display:block;color:var(--en);font-size:12px;direction:ltr;font-family:var(--mono);margin-bottom:3px}
+  /* Table */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:16px}
+  th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:14px;font-family:var(--mono)}
+  td.cmd{direction:ltr;font-family:var(--mono);color:var(--code-text);font-size:13px}
+  /* Section titles */
+  .sect-title{margin:44px 0 6px;font-size:24px;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .sect-title .en{color:var(--en);font-size:15px;font-weight:400;font-style:italic;direction:ltr}
+  /* Trouble */
+  .trouble{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 26px;margin-top:14px}
+  .trouble details{border-bottom:1px solid var(--line);padding:14px 0}
+  .trouble details:last-child{border-bottom:none}
+  .trouble summary{cursor:pointer;font-weight:500;list-style:none}
+  .trouble summary::-webkit-details-marker{display:none}
+  .trouble summary::before{content:"▸";color:var(--accent);margin-inline-end:8px;display:inline-block;transition:.2s}
+  .trouble details[open] summary::before{transform:rotate(90deg)}
+  .trouble .ans{color:var(--muted);font-size:16px;margin-top:10px}
+  .trouble .ans code{background:var(--code-bg);padding:2px 7px;border-radius:6px;font-family:var(--mono);font-size:13px;color:var(--code-text);direction:ltr;display:inline-block}
+  /* Footer */
+  footer{text-align:center;color:var(--muted);font-size:14px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+  footer a{color:var(--accent);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .pill{display:inline-block;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin:4px;font-family:var(--mono);font-size:12.5px;direction:ltr}
+  @media(max-width:600px){
+    .agents{grid-template-columns:1fr}
+    h1{font-size:26px}
+    body{font-size:17px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">● WhatsApp + AI</span>
+  <h1>تثبيت wacli وربطه بمساعد ذكاء اصطناعي
+    <span class="h1-en">Install wacli &amp; connect it to an AI agent</span>
+  </h1>
+  <p class="sub">دليل مختصر خطوة بخطوة لتثبيت أداة wacli على الماك وربطها بـ Claude أو Codex، حتى يقدر المساعد يقرأ ويبحث ويرسل رسائل واتساب نيابة عنك.</p>
+</header>
+
+<div class="wrap">
+
+  <div class="intro">
+    <p><strong>ما هي wacli؟</strong> أداة سطر أوامر (Command Line) تربط واتساب بجهازك وتخزّن محادثاتك في قاعدة بيانات محلية على الماك. أي مساعد ذكاء اصطناعي يقدر يشغّل أوامر في الطرفية (مثل Claude Code أو Codex) يقدر يقرأ هذه المحادثات ويبحث فيها ويرسل رسائل، بدون أي إضافة أو ربط خاص.</p>
+    <p><strong>الوقت المتوقع:</strong> حوالي 5 إلى 10 دقائق. كل الأوامر تتنفّذ في تطبيق <span class="en-tag">Terminal</span> (الطرفية) على الماك.</p>
+  </div>
+
+  <div class="prereq">
+    <h3>المتطلبات <span class="en-tag">Prerequisites</span></h3>
+    <ul>
+      <li>جهاز Mac يعمل بنظام macOS، مع تطبيق <span class="en-tag">Terminal</span> (موجود في Applications &gt; Utilities).</li>
+      <li>هاتف فيه واتساب فعّال (لمسح رمز <span class="en-tag">QR</span> مرة واحدة).</li>
+      <li>مساعد ذكاء اصطناعي مثبّت في الطرفية: <span class="en-tag">Claude Code</span> أو <span class="en-tag">OpenAI Codex</span>. إذا ما كان مثبّتاً، ثبّته أولاً ثم ارجع للخطوة 6.</li>
+    </ul>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">1</div>
+      <h2>تثبيت Homebrew<span class="en">Install Homebrew (the package manager)</span></h2>
+    </div>
+    <p>Homebrew هو مدير الحزم الذي نثبّت من خلاله wacli. الصق هذا الأمر في الطرفية واضغط Enter:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</pre>
+    </div>
+    <p class="note">إذا طلب منك تثبيت <span class="en-tag">Command Line Tools</span>، وافق عليه (ضروري). أو شغّل هذا الأمر بنفسك:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>xcode-select --install</pre>
+    </div>
+    <p>بعد انتهاء التثبيت، أضف Homebrew إلى مسار النظام (<span class="en-tag">PATH</span>). هذه الخطوة مهمة على أجهزة Apple Silicon، وبدونها تظهر رسالة <span class="en-tag">brew: command not found</span>:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>echo >> ~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"</pre>
+    </div>
+    <p class="note">للتأكد أنه ثبّت بنجاح: شغّل <span class="en-tag">brew --version</span> ويفترض يظهر رقم الإصدار.</p>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">2</div>
+      <h2>تثبيت wacli<span class="en">Install wacli</span></h2>
+    </div>
+    <p>أمر واحد يثبّت الأداة من المستودع الرسمي:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>brew install openclaw/tap/wacli</pre>
+    </div>
+    <p class="note">للتأكد: شغّل <span class="en-tag">wacli --version</span>.</p>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">3</div>
+      <h2>ربط رقمك في واتساب<span class="en">Link your WhatsApp number</span></h2>
+    </div>
+    <p>شغّل أمر المصادقة، وراح يظهر رمز <span class="en-tag">QR</span> داخل الطرفية:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>wacli auth</pre>
+    </div>
+    <p>من جوالك: افتح واتساب &lt; الإعدادات &lt; الأجهزة المرتبطة <span class="en-tag">(Linked Devices)</span> &lt; ربط جهاز &lt; امسح رمز الـ QR الظاهر في الطرفية.</p>
+    <p class="note">بديل بدون كاميرا: الربط برقم الهاتف عبر <span class="en-tag">wacli auth --phone 9665XXXXXXXX</span>.</p>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">4</div>
+      <h2>مزامنة الرسائل<span class="en">Sync your messages</span></h2>
+    </div>
+    <p>هذه هي الخطوة الرابعة المهمة: تنزيل محادثاتك إلى قاعدة البيانات المحلية حتى يكون عند المساعد شيء يقرأه. بدونها لا توجد رسائل ليطّلع عليها.</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>wacli sync --once</pre>
+    </div>
+    <p class="note"><span class="en-tag">--once</span> يزامن ثم يتوقف. أما <span class="en-tag">wacli sync</span> بدون إضافات فيظل يعمل ويزامن باستمرار حتى توقفه بـ Ctrl+C.</p>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">5</div>
+      <h2>تأكد من الاتصال<span class="en">Verify the connection</span></h2>
+    </div>
+    <p>تحقق أن الربط تم بنجاح:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>wacli auth status</pre>
+    </div>
+    <p>أو فحص شامل للحالة وقاعدة البيانات:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre>wacli doctor</pre>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">6</div>
+      <h2>اربطه بمساعد الذكاء الاصطناعي<span class="en">Connect it to an AI agent</span></h2>
+    </div>
+    <p><strong>الفكرة الأساسية:</strong> wacli مجرد أداة سطر أوامر على جهازك. أي مساعد يقدر يشغّل أوامر الطرفية يستخدمها تلقائياً، بدون أي إضافة (plugin) أو ربط خاص. كل ما تحتاجه أن تطلب منه بلغة عادية.</p>
+
+    <div class="agents">
+      <div class="agent">
+        <h4>Claude Code <span class="en">/ كلود</span></h4>
+        <p>اكتب طلبك بالعربي أو الإنجليزي، مثل: «اقرأ آخر رسائلي مع سلمان في واتساب عبر wacli». أول مرة يشغّل فيها أمر wacli راح يطلب منك إذن (Access) للتنفيذ؛ وافق عليه. هذا هو طلب الصلاحية المقصود.</p>
+      </div>
+      <div class="agent">
+        <h4>OpenAI Codex <span class="en">/ كودكس</span></h4>
+        <p>نفس الطريقة تماماً: اطلب منه قراءة واتساب عبر wacli، وعند تنفيذ الأمر راح يطلب الموافقة على تشغيله؛ وافق عليه. لأن كليهما يشغّلان أوامر الطرفية، فالأداة نفسها تعمل مع الاثنين.</p>
+      </div>
+    </div>
+
+    <p class="note"><strong>اختياري وموصى به للفريق:</strong> علّم المساعد الأوامر الشائعة مرة واحدة بإضافتها لملف ذاكرته، حتى ما تكررها كل مرة. لـ Claude Code: ملف <span class="en-tag">CLAUDE.md</span> (داخل المجلد) أو <span class="en-tag">~/.claude/CLAUDE.md</span> (عام). لـ Codex: ملف <span class="en-tag">AGENTS.md</span>. الصق هذا المقطع:</p>
+    <div class="code">
+      <button class="copy">نسخ</button>
+      <pre># WhatsApp via wacli
+wacli is installed and authenticated on this Mac.
+To read / search / send WhatsApp, use these commands:
+- find a contact:  wacli contacts search "name"
+- read a chat:     wacli messages list --chat &lt;JID&gt; --limit 50 --full
+- search messages: wacli messages search "query"
+- send a message:  wacli send text --to &lt;JID&gt; --message "text"
+Run `wacli sync --once` first if the data looks stale.</pre>
+    </div>
+
+    <p style="margin-top:18px"><strong>أمثلة على الطلبات</strong> <span class="en-tag">(example prompts)</span>:</p>
+    <div class="prompt-ex"><span class="lbl">read &amp; summarize</span>اقرأ محادثتي مع لمى في واتساب ولخّص لي آخر 10 رسائل.</div>
+    <div class="prompt-ex"><span class="lbl">search</span>ابحث في رسائلي عن كلمة «العقد» وأعطني الروابط.</div>
+    <div class="prompt-ex"><span class="lbl">send (asks before sending)</span>أرسل رسالة لسلمان في واتساب: تم الانتهاء من التقرير.</div>
+  </div>
+
+  <!-- CHEAT SHEET -->
+  <h2 class="sect-title">أوامر سريعة <span class="en">wacli cheat sheet</span></h2>
+  <table>
+    <thead><tr><th>الغرض</th><th>الأمر</th></tr></thead>
+    <tbody>
+      <tr><td>البحث عن جهة اتصال (للحصول على الـ JID)</td><td class="cmd">wacli contacts search "اسم"</td></tr>
+      <tr><td>عرض قائمة المحادثات</td><td class="cmd">wacli chats list</td></tr>
+      <tr><td>قراءة محادثة محددة</td><td class="cmd">wacli messages list --chat &lt;JID&gt; --limit 50 --full</td></tr>
+      <tr><td>البحث داخل الرسائل</td><td class="cmd">wacli messages search "كلمة"</td></tr>
+      <tr><td>إرسال رسالة نصية</td><td class="cmd">wacli send text --to &lt;JID&gt; --message "النص"</td></tr>
+      <tr><td>مزامنة جديدة للرسائل</td><td class="cmd">wacli sync --once</td></tr>
+      <tr><td>حالة الاتصال / تشخيص</td><td class="cmd">wacli auth status &nbsp;·&nbsp; wacli doctor</td></tr>
+    </tbody>
+  </table>
+
+  <!-- TROUBLESHOOTING -->
+  <h2 class="sect-title">حل المشاكل الشائعة <span class="en">Troubleshooting</span></h2>
+  <div class="trouble">
+    <details>
+      <summary>تظهر رسالة <span class="en-tag">brew: command not found</span></summary>
+      <div class="ans">تخطّيت خطوة إضافة Homebrew للمسار في الخطوة 1. أعد تشغيل سطر <code>eval "$(/opt/homebrew/bin/brew shellenv)"</code>، أو أغلق الطرفية وافتحها من جديد.</div>
+    </details>
+    <details>
+      <summary>يطلب تثبيت <span class="en-tag">Command Line Tools</span></summary>
+      <div class="ans">وافق عليه؛ هو ضروري لعمل Homebrew. أو شغّل <code>xcode-select --install</code> وانتظر انتهاء التثبيت ثم أعد المحاولة.</div>
+    </details>
+    <details>
+      <summary>انتهت صلاحية رمز الـ QR قبل ما أمسحه</summary>
+      <div class="ans">شغّل <code>wacli auth</code> مرة ثانية، وراح يظهر رمز جديد. امسحه بسرعة من خلال الأجهزة المرتبطة في واتساب.</div>
+    </details>
+    <details>
+      <summary>المساعد يقول لا توجد رسائل أو البيانات قديمة</summary>
+      <div class="ans">شغّل <code>wacli sync --once</code> لتحديث المحادثات، ثم اطلب من المساعد المحاولة مرة أخرى.</div>
+    </details>
+    <details>
+      <summary>أريد فصل الحساب أو إعادة الربط</summary>
+      <div class="ans">شغّل <code>wacli auth logout</code> ثم <code>wacli auth</code> لإعادة الربط من جديد.</div>
+    </details>
+  </div>
+
+  <footer>
+    <div>
+      <span class="pill">wacli 0.11.1</span>
+      <span class="pill">macOS</span>
+    </div>
+    <p>التوثيق الرسمي: <a href="https://wacli.sh" target="_blank" rel="noopener">wacli.sh</a> &nbsp;·&nbsp; المصدر: <a href="https://github.com/openclaw/wacli" target="_blank" rel="noopener">github.com/openclaw/wacli</a></p>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var code = btn.parentElement.querySelector('pre').innerText;
+      navigator.clipboard.writeText(code).then(function(){
+        var old = btn.textContent;
+        btn.textContent = 'تم النسخ ✓';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1600);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

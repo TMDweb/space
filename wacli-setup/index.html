@@ -104,6 +104,16 @@
     border-inline-start:3px solid var(--accent-2);
     padding-inline-start:13px;margin-top:14px;
   }
+  .tip{
+    background:rgba(37,211,102,.08);
+    border:1px solid rgba(37,211,102,.28);
+    border-radius:12px;padding:16px 20px;margin:16px 0;
+  }
+  .tip-label{
+    display:inline-block;color:var(--accent);font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.3px;margin-bottom:6px;
+  }
+  .tip p{margin:6px 0;color:#dcefe3;font-size:16px}
   /* Code block */
   .code{
     position:relative;direction:ltr;text-align:left;
@@ -253,11 +263,16 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</pre>
       <h2>مزامنة الرسائل<span class="en">Sync your messages</span></h2>
     </div>
     <p>هذه هي الخطوة الرابعة المهمة: تنزيل محادثاتك إلى قاعدة البيانات المحلية حتى يكون عند المساعد شيء يقرأه. بدونها لا توجد رسائل ليطّلع عليها.</p>
-    <div class="code">
-      <button class="copy">نسخ</button>
-      <pre>wacli sync --once</pre>
+    <div class="tip">
+      <span class="tip-label">موصى به · Recommended</span>
+      <p>شغّل المزامنة المستمرة واتركها تعمل في نافذة ترمنال مفتوحة طوال الوقت:</p>
+      <div class="code">
+        <button class="copy">نسخ</button>
+        <pre>wacli sync</pre>
+      </div>
+      <p>طالما هذا الأمر شغّال، أي رسالة واتساب جديدة تُحفظ مباشرة في قاعدة البيانات، فيقرأ المساعد <strong>أحدث</strong> الرسائل. إذا أغلقت النافذة أو أوقفته (Ctrl+C)، تبقى في قاعدة البيانات <strong>الرسائل القديمة فقط</strong> حتى آخر مزامنة، ولن يرى المساعد أي رسائل أحدث حتى تشغّله من جديد.</p>
     </div>
-    <p class="note"><span class="en-tag">--once</span> يزامن ثم يتوقف. أما <span class="en-tag">wacli sync</span> بدون إضافات فيظل يعمل ويزامن باستمرار حتى توقفه بـ Ctrl+C.</p>
+    <p class="note">بديل سريع لمرة واحدة: <span class="en-tag">wacli sync --once</span> يزامن ثم يتوقف. مناسب لو تبي تحديث سريع بدون ترك نافذة مفتوحة.</p>
   </div>
 
   <!-- STEP 5 -->
@@ -326,7 +341,8 @@ Run `wacli sync --once` first if the data looks stale.</pre>
       <tr><td>قراءة محادثة محددة</td><td class="cmd">wacli messages list --chat &lt;JID&gt; --limit 50 --full</td></tr>
       <tr><td>البحث داخل الرسائل</td><td class="cmd">wacli messages search "كلمة"</td></tr>
       <tr><td>إرسال رسالة نصية</td><td class="cmd">wacli send text --to &lt;JID&gt; --message "النص"</td></tr>
-      <tr><td>مزامنة جديدة للرسائل</td><td class="cmd">wacli sync --once</td></tr>
+      <tr><td>مزامنة مستمرة، اتركها تعمل (موصى به)</td><td class="cmd">wacli sync</td></tr>
+      <tr><td>تحديث سريع لمرة واحدة</td><td class="cmd">wacli sync --once</td></tr>
       <tr><td>حالة الاتصال / تشخيص</td><td class="cmd">wacli auth status &nbsp;·&nbsp; wacli doctor</td></tr>
     </tbody>
   </table>

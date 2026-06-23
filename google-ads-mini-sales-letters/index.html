@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسائل البيع المصغّرة في إعلانات جوجل · Mini-Sales Letters for Google Ads</title>
+<style>
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Regular.woff2') format('woff2');
+    font-weight:400;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Medium.woff2') format('woff2');
+    font-weight:500;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Bold.woff2') format('woff2');
+    font-weight:700;font-style:normal;font-display:swap;
+  }
+  :root{
+    --bg:#0c0e1d;
+    --panel:#15182e;
+    --panel-2:#1b1f3a;
+    --line:#2a2f52;
+    --text:#eceefb;
+    --muted:#9aa1c7;
+    --accent:#fcbf2c;
+    --accent-2:#d99a0a;
+    --code-bg:#080a16;
+    --code-text:#e9ecfb;
+    --en:#c9a85a;
+    --radius:16px;
+    --serif:'Thmanyah Serif Text', Georgia, 'Times New Roman', serif;
+    --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--serif);
+    line-height:1.95;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  /* Header */
+  header.hero{
+    text-align:center;
+    padding:52px 24px 40px;
+    background:radial-gradient(120% 140% at 50% 0%, #1c2147 0%, var(--bg) 70%);
+    border-bottom:1px solid var(--line);
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(252,191,44,.12);
+    color:var(--accent);
+    border:1px solid rgba(252,191,44,.3);
+    padding:6px 14px;border-radius:999px;
+    font-size:14px;font-weight:500;margin-bottom:20px;font-family:var(--mono);
+  }
+  h1{font-size:33px;font-weight:700;margin:0 0 6px;line-height:1.45}
+  .h1-en{display:block;font-size:19px;color:var(--en);font-weight:400;font-style:italic;direction:ltr;margin-top:8px}
+  .sub{color:var(--muted);max-width:660px;margin:16px auto 0;font-size:17px}
+  /* Intro */
+  .intro{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px 26px;margin:28px 0;
+  }
+  .intro p{margin:0 0 10px}
+  .intro p:last-child{margin:0}
+  /* Prereq */
+  .prereq{
+    background:var(--panel-2);border:1px dashed var(--line);
+    border-radius:var(--radius);padding:20px 26px;margin:24px 0 8px;
+  }
+  .prereq h3{margin:0 0 12px;font-size:19px;display:flex;gap:8px;align-items:center}
+  .prereq ul{margin:0;padding-inline-start:22px}
+  .prereq li{margin-bottom:8px}
+  .en-tag{color:var(--en);direction:ltr;display:inline-block;font-size:14px;font-family:var(--mono)}
+  /* Step cards */
+  .step{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px;margin:18px 0;
+    position:relative;
+  }
+  .step-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:8px}
+  .num{
+    flex:0 0 auto;width:40px;height:40px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#2a1d00;font-weight:700;font-size:19px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);
+  }
+  .step h2{font-size:22px;margin:5px 0 0;font-weight:700}
+  .step h2 .en{display:block;font-size:15px;color:var(--en);font-weight:400;font-style:italic;direction:ltr;margin-top:3px}
+  .step p{margin:11px 0;color:#d4d8ef}
+  .step ul{margin:11px 0;padding-inline-start:22px;color:#d4d8ef}
+  .step li{margin-bottom:7px}
+  .step li b{color:var(--text)}
+  .step p.note{
+    color:var(--muted);font-size:16px;
+    border-inline-start:3px solid var(--accent-2);
+    padding-inline-start:13px;margin-top:14px;
+  }
+  /* generic emphasis */
+  strong{color:#fff;font-weight:700}
+  .gold{color:var(--accent);font-weight:500}
+  /* Tip */
+  .tip{
+    background:rgba(252,191,44,.07);
+    border:1px solid rgba(252,191,44,.26);
+    border-radius:12px;padding:16px 20px;margin:16px 0;
+  }
+  .tip-label{
+    display:inline-block;color:var(--accent);font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.3px;margin-bottom:6px;
+  }
+  .tip p{margin:6px 0;color:#e4e2cf;font-size:16px}
+  /* Example output box */
+  .out{
+    background:var(--panel-2);border:1px solid var(--line);
+    border-inline-start:3px solid var(--accent);
+    border-radius:10px;padding:12px 18px;margin:10px 0;
+    color:var(--text);font-size:16.5px;
+  }
+  .out .lbl{display:block;color:var(--en);font-size:12px;font-family:var(--mono);direction:ltr;margin-bottom:4px}
+  /* Formula banner */
+  .formula{
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:stretch;
+    margin:18px 0;
+  }
+  .formula .pc{
+    flex:1 1 28%;min-width:180px;text-align:center;
+    background:var(--panel-2);border:1px solid var(--line);border-radius:12px;
+    padding:14px 12px;font-weight:700;font-size:16px;
+  }
+  .formula .pc small{display:block;color:var(--en);font-family:var(--mono);font-size:11px;font-weight:400;margin-top:4px;direction:ltr}
+  .formula .op{display:flex;align-items:center;color:var(--accent);font-weight:700;font-size:22px}
+  /* Screenshot caption note */
+  .shot{
+    border:1.5px dashed var(--line);border-radius:12px;
+    background:rgba(255,255,255,.015);
+    padding:13px 18px;margin:14px 0;font-size:15.5px;color:var(--muted);
+  }
+  .shot .icn{color:var(--accent);font-family:var(--mono);font-size:12.5px;display:inline-block;margin-inline-end:6px}
+  .shot b{color:var(--text)}
+  /* Code / prompt block */
+  .code{
+    position:relative;direction:ltr;text-align:left;
+    background:var(--code-bg);border:1px solid var(--line);
+    border-radius:12px;margin:14px 0;overflow:hidden;
+  }
+  .code pre{
+    margin:0;padding:16px 18px;overflow-x:auto;
+    font-family:var(--mono);font-size:13px;
+    color:var(--code-text);line-height:1.7;
+  }
+  /* Arabic prompt block (RTL, serif, still copyable) */
+  .promptblock{
+    position:relative;
+    background:var(--code-bg);border:1px solid var(--line);
+    border-radius:12px;margin:14px 0;padding:16px 20px 18px;
+  }
+  .promptblock .ptitle{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    margin-bottom:10px;flex-wrap:wrap;
+  }
+  .promptblock .ptitle .n{font-weight:700;color:var(--text);font-size:16px}
+  .promptblock .ptitle .badge2{
+    background:rgba(252,191,44,.12);color:var(--accent);
+    border:1px solid rgba(252,191,44,.3);border-radius:999px;
+    padding:2px 11px;font-size:12px;font-family:var(--mono);direction:ltr;
+  }
+  .promptblock .ptext{color:#dfe2f4;font-size:16px;line-height:1.9}
+  .promptblock .ph{color:var(--accent);background:rgba(252,191,44,.1);padding:0 5px;border-radius:5px}
+  .copy{
+    background:var(--panel-2);color:var(--muted);
+    border:1px solid var(--line);border-radius:8px;
+    padding:5px 12px;font-size:13px;cursor:pointer;
+    font-family:var(--serif);transition:.15s;
+  }
+  .code .copy{position:absolute;top:8px;inset-inline-end:8px}
+  .copy:hover{color:var(--text);border-color:var(--accent-2)}
+  .copy.done{color:var(--accent);border-color:var(--accent)}
+  /* Section titles */
+  .sect-title{margin:44px 0 6px;font-size:24px;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .sect-title .en{color:var(--en);font-size:15px;font-weight:400;font-style:italic;direction:ltr}
+  /* Flow recap */
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+  .flow .f{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .flow .f .fn{font-family:var(--mono);color:var(--accent);font-weight:700;font-size:15px;margin-inline-end:6px}
+  .flow .f .ft{font-size:15px}
+  .flow .f .fe{display:block;color:var(--en);font-size:12px;font-family:var(--mono);direction:ltr;margin-top:2px}
+  /* Limits row */
+  .limits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+  .limits .l{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .limits .l .nn{display:block;font-family:var(--mono);font-weight:700;font-size:30px;color:var(--accent)}
+  .limits .l .tt{font-size:14px;color:var(--muted)}
+  /* Table */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:16px}
+  th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:14px;font-family:var(--mono)}
+  td .en2{color:var(--en);font-family:var(--mono);font-size:12.5px;direction:ltr;display:block;margin-top:2px}
+  /* Trouble */
+  .trouble{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 26px;margin-top:14px}
+  .trouble details{border-bottom:1px solid var(--line);padding:14px 0}
+  .trouble details:last-child{border-bottom:none}
+  .trouble summary{cursor:pointer;font-weight:500;list-style:none}
+  .trouble summary::-webkit-details-marker{display:none}
+  .trouble summary::before{content:"\25B8";color:var(--accent);margin-inline-end:8px;display:inline-block;transition:.2s}
+  .trouble details[open] summary::before{transform:rotate(90deg)}
+  .trouble .ans{color:var(--muted);font-size:16px;margin-top:10px}
+  .trouble .ans code{background:var(--code-bg);padding:2px 7px;border-radius:6px;font-family:var(--mono);font-size:13px;color:var(--code-text);direction:ltr;display:inline-block}
+  /* Footer */
+  footer{text-align:center;color:var(--muted);font-size:14px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+  footer a{color:var(--accent);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .pill{display:inline-block;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin:4px;font-family:var(--mono);font-size:12.5px;direction:ltr}
+  @media(max-width:600px){
+    h1{font-size:26px}
+    body{font-size:17px}
+    .flow,.limits{grid-template-columns:1fr}
+    .formula .pc{flex:1 1 100%}
+    .formula .op{justify-content:center;width:100%}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">● إعلانات جوجل + الذكاء الاصطناعي</span>
+  <h1>«رسائل بيع مصغّرة» في إعلانات جوجل تتفوّق على أي منافس
+    <span class="h1-en">Mini-Sales Letters for Google Ads, powered by AI</span>
+  </h1>
+  <p class="sub">دليل خطوة بخطوة يحوّل وصف إعلان جوجل من سطرين باردين إلى رسالة بيع كاملة تبيع قبل ما يوصل العميل للصفحة. وتسوّيها في أقل من 10 دقائق بطريقة «3¾» السهلة، مع مثال حقيقي على مشاريع أساس مكين السكنية.</p>
+</header>
+
+<div class="wrap">
+
+  <div class="intro">
+    <p><strong>المشكلة:</strong> في إعلانات جوجل عندك «عنوان» و«وصف» يوصلون لجمهورك. العنوان ما يتجاوز <span class="gold">30 حرفًا</span> بما فيها المسافات، والوصف ما يتجاوز <span class="gold">90 حرفًا</span>. يعني <span class="gold">120 حرفًا فقط</span> بالمجمل تبيع فيها. مساحة ضيّقة جدًا، ولو قلت غير كذا چان كذبت عليك.</p>
+    <p><strong>الحل:</strong> بدل الكلام المكرّر اللي يستخدمه الكل، نستخدم <em class="gold">الكتابة بالاستجابة المباشرة</em> (Direct Response) ونسوّي «رسالة بيع مصغّرة» داخل الوصف، ونخلّي الذكاء الاصطناعي يسوّي الأساس بدالنا.</p>
+    <p><strong>الوقت المتوقع:</strong> 5 إلى 10 دقائق لكل إعلان بعد ما تتقن الطريقة.</p>
+  </div>
+
+  <div class="prereq">
+    <h3>قبل ما تبدأ <span class="en-tag">Before you start</span></h3>
+    <ul>
+      <li>مشروع أو منتج تعلن عنه، ومعك <strong>أبرز نقاط بيعه</strong> (في مثالنا: مشاريع مكين السكنية ومزاياها الثابتة).</li>
+      <li>حساب <span class="en-tag">ChatGPT</span> أو <span class="en-tag">Claude</span> لتوليد النسخ.</li>
+      <li>وصول إلى <span class="en-tag">Meta Ad Library</span> ونقاشات العملاء (X، سناب، أسئلة فريق المبيعات) للبحث.</li>
+    </ul>
+  </div>
+
+  <p style="margin:22px 2px 0;color:#d4d8ef"><strong>قبل أي شي افهم القاعدة:</strong> أغلب «خبراء» جوجل يقولون لك اكتب جُمل تشرح مزايا منتجك في الوصف. <strong>غلط.</strong> تعامل مع الوصف كأنه <span class="gold">عنوان ثانٍ</span> بأحرف أكثر، مو سرد مزايا. الفرق الوحيد هو كمية المساحة، مو طريقة التفكير.</p>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">1</div>
+      <h2>ابحث عن العميل<span class="en">Customer research</span></h2>
+    </div>
+    <p>نبي نعرف 3 أشياء أساسية:</p>
+    <ul>
+      <li><b>شخصية العميل</b> (مين اللي يشتري)</li>
+      <li><b>نقاط الألم</b> الشائعة (وش يزعجه ويخوّفه)</li>
+      <li><b>الرغبات</b> (وش يتمنّى يحصل عليه)</li>
+    </ul>
+    <p>في العقار السعودي، أسهل مصادر البحث: <span class="gold">Meta Ad Library</span> لإعلانات المنافسين، نقاشات الناس في X، تعليقات حسابات العقار في سناب وإنستغرام، و<strong>الأسئلة المتكررة اللي توصل فريق المبيعات</strong>. كل ما كان بحثك أدق، كانت مبيعاتك أعلى.</p>
+
+    <div class="shot"><span class="icn">[ screenshot ]</span> <b>اللقطة الأصلية كانت تعرض</b> مخرجات بحث سريع: نقاشات ومراجعات تكشف اهتمامات المشتري ومخاوفه قبل ما تكتب أي كلمة.</div>
+
+    <p class="note"><strong>مثالنا:</strong> مشروع <span class="gold">مكين 80</span> في حي الرمال بشمال الرياض، شقق تمليك تبدأ من 730,000 ريال.</p>
+    <p><strong>وش طلع من البحث؟</strong> المشتري غالبًا أسرة سعودية شابة أو مقبل على أول تملّك، يستأجر حاليًا ومؤهّل للدعم السكني، يبي يملك بدل ما يدفع إيجار يضيع كل سنة. نقاط الألم المتكررة: مشاريع تتأخر بالتسليم سنوات، الإعلان يطلع شي والواقع شي (مساحات صغيرة وتشطيب رديء)، رسوم مخفية، تمويل معقّد، ومرافق مشتركة بدون خصوصية للعائلة. <span class="gold">بالضبط اللي نبيه.</span></p>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">2</div>
+      <h2>حوّلها إلى عرض<span class="en">Transform findings into an offer</span></h2>
+    </div>
+    <p>نعكس نتائج البحث ونحوّلها لعرض:</p>
+    <ul>
+      <li><b>شخصية العميل</b> (مين يشتري) ← تتحوّل إلى <b>وش</b> يشتري</li>
+      <li><b>نقاط الألم</b> ← تتحوّل إلى أشياء المنتج يمنعها أو «مو موجودة فيه»</li>
+      <li><b>الرغبات</b> ← تتحوّل إلى منافع المنتج</li>
+    </ul>
+    <p>فنتائجنا الثلاث معكوسة تطلع كذا:</p>
+    <div class="out"><span class="lbl">who → what</span>شقق تمليك عصرية لأول تملّك في شمال الرياض</div>
+    <div class="out"><span class="lbl">desires → benefits</span>جاهزة للتسليم فورًا، منزل ذكي، وضمانات تمتد لـ 25 سنة</div>
+    <div class="out"><span class="lbl">pains → relief</span>بدون انتظار سنوات بناء وبدون مفاجآت في التشطيب</div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">3</div>
+      <h2>الصيغة الجاهزة<span class="en">The plug &amp; play formula</span></h2>
+    </div>
+    <p>نستخدم إطارًا ونعبّي الفراغات. هذي صيغة وصف إعلان جوجل:</p>
+    <div class="formula">
+      <div class="pc">منفعة بدون نقطة الألم<small>benefit without the pain</small></div>
+      <div class="op">+</div>
+      <div class="pc">المنتج لشخصية العميل<small>product for the avatar</small></div>
+      <div class="op">+</div>
+      <div class="pc">دليل اجتماعي<small>social proof</small></div>
+    </div>
+    <p>نفكّكها جزءًا جزءًا:</p>
+    <div class="out"><span class="lbl">benefit without pain</span>تملّك شقة جاهزة للسكن الآن بدون انتظار سنوات البناء</div>
+    <div class="out"><span class="lbl">product for avatar</span>شقق مكين العصرية في شمال الرياض، تبدأ من 730,000 ريال</div>
+    <div class="out"><span class="lbl">social proof</span>6 مشاريع متاحة، ومكين 63 تجاوز حجزه 88% (خذ الأرقام الحقيقية من فريق المبيعات)</div>
+    <p>نركّبهم مع بعض فيطلع:</p>
+    <div class="out">«تملّك شقة جاهزة للسكن الآن بدون انتظار سنوات البناء. شقق مكين العصرية في شمال الرياض تبدأ من 730,000 ريال. 6 مشاريع ووحدات تنحجز بسرعة.»</div>
+    <div class="tip">
+      <span class="tip-label">ملاحظة · note</span>
+      <p>هذا إطار، مو قالب جامد. ما فيه طريقة واحدة تناسب كل الحالات، فطوّعها حسب المشروع.</p>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">4</div>
+      <h2>قُصّها وخفّفها (خطوة الـ¾)<span class="en">Trim it to three-quarters</span></h2>
+    </div>
+    <p>ناخذ الوصف الجاهز ونقصّه لين يصير تقريبًا <strong>ثلاثة أرباع</strong> حجمه. هنا تحط «النكهة». نقطّعه لجُمل قصيرة متتالية تنساب بسلاسة:</p>
+    <div class="out">تملّك شقة جاهزة للسكن الآن. بدون انتظار بناء. شقق عصرية شمال الرياض. تبدأ من 730,000 ريال.</div>
+    <p>تمام. صار عندنا أول وصف. الحين ناخذ مقطع منه ونخلّيه «العنوان» عشان التناسق. فيطلع إعلاننا كذا:</p>
+    <div class="out"><span class="lbl">headline &le; 30 chars</span>شقق تمليك شمال الرياض</div>
+    <div class="out"><span class="lbl">description &le; 90 chars</span>تملّك شقة جاهزة للسكن الآن. بدون انتظار بناء. تبدأ من 730,000 ريال.</div>
+    <p class="note"><strong>ملاحظة:</strong> التركيز هنا على الوصف. العناوين تتغيّر حسب موقع العميل في رحلة الشراء ومستوى وعيه. وتقدر دايمًا تحوّل نقطة ألم إلى عنوان مثل «وفّر إيجار سنوات» أو «جاهزة للسكن الآن».</p>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="num">5</div>
+      <h2>شغّل الذكاء الاصطناعي<span class="en">Put AI to work</span></h2>
+    </div>
+    <p>هنا الجزء الممتع: نخلّي ChatGPT يكمّل لنا الشغل مع شوية تعديل منك. انسخ البرومبتات بالترتيب، وعند البرومبت 3 و4 خصّصها حسب اللي تعلن عنه.</p>
+    <p class="note">بما إن مكين عميل عربي، البرومبتات مكتوبة بالعربي عشان يطلع لك ChatGPT نص إعلان عربي جاهز مباشرة. استخدم زر «نسخ» في كل صندوق.</p>
+
+    <div class="promptblock">
+      <div class="ptitle"><span class="n">البرومبت 1: تجهيز الشخصية</span><button class="copy">نسخ</button></div>
+      <div class="ptext">أنت «CopyChad»، مساعد كتابة إعلانية محترف. خبير في تحليل أي نص بيعي واستخراج أفضل صيغة كتابية له. مهمتك: تاخذ المحتوى اللي أعطيك إياه، وتختار 6 صيغ من اللي تعرفها وتعيد كتابة المحتوى فيها. في الرسالة الجاية بعطيك قائمة الصيغ والأطر اللي تعرفها. لا تطلع إلا قائمة منسّقة فيها 6 نسخ من المحتوى، إلا إذا كان فيه لبس أو ما وصلك محتوى. أحيانًا تقدر تختم ردك باقتباس لأحد كبار المسوّقين. وممكن أطلب منك تعطيني الصيغة المثالية لأي نص بيعي، فاشرح جوابك خطوة بخطوة. الرسالة الجاية بعلّمك كل الأطر. إذا فهمت، اذكر اسمك ومهمتك في جملة وحدة وانتظر القائمة.</div>
+    </div>
+
+    <div class="promptblock">
+      <div class="ptitle"><span class="n">البرومبت 2: قائمة الصيغ</span><button class="copy">نسخ</button></div>
+      <div class="ptext">هذي كل صيغ وأطر الكتابة الإعلانية اللي تعرفها (خلّ أسماءها كما هي، فهي مصطلحات معروفة يفهمها النموذج جاهزة):</div>
+      <div class="code" style="margin-top:10px">
+        <pre style="white-space:pre-wrap;word-break:break-word">AIDA, PAS, BAB, 4 Cs, 4 Ps, 4 Us, FAB, QUEST, ACCA, OATH, APP, RECIPE, The Rule of Three, The 6+1 Model, SCQA, KISS, SUCCES, SOAP, PPPP, SLAP, STAR, 3-Act Structure, PASTOR, WWHW, VAD, 5 Ws, SSS, 2-2-2, BRIEF, BDA, DIP, 7-Step Story Arc, The LIFT Model, CAKE, SIR, TEAR, PPF, SODA, CTR, CLAIM, CODA, The Hook-Subhook System, The Power of One, The 3 R's, CUB, The 5 E's, The Value Proposition Canvas, The Copywriting Grid, COPY, TACTIC, BLUR, Clayton Makepeace's 4-Legged Stool, Ray Edwards' PASTOR, Joe Sugarman's The Advertorial, Bob Bly's Lead-Gen Model, Gary Bencivenga's Persuasion Equation, Gary Halbert's A-Pile/B-Pile, John Carlton's Simple Writing System, Dan Kennedy's Godfather Offer, Frank Kern's 4 Day Cash Machine, Jeff Walker's Product Launch Formula, Perry Belcher's 21-Step Sales Letter Formula, Eugene Schwartz's Breakthrough Advertising, Ryan Deiss' The Machine, Ben Settle's Email Players, John Caples' Tested Advertising Methods, David Ogilvy's How to Create Advertising that Sells, Robert Collier's Letter Book, Michael Masterson's Ready Fire Aim, AWAI's 6-Figure Copywriting, Joanna Wiebe's Conversion Copywriting, Seth Godin's Permission Marketing, Brian Clark's Copyblogger, Dean Jackson's 9-Word Email, Neville Medhora's Kopywriting Kourse, Andre Chaperon's Autoresponder Madness, Russell Brunson's Dotcom Secrets, Jon Morrow's Headline Hacks, Bond Halbert's Copywriting Method, Don Miller's StoryBrand, Schwartz's Market Sophistication, Cialdini's Principles of Persuasion, Heath Brothers' Made to Stick, The Skyscraper Technique, The Hero's Journey, Carnegie's How to Win Friends and Influence People, Michael Gerber's E-Myth, Seth Godin's Purple Cow, Voss's Negotiation Framework, Emotional Selling Proposition (ESP), Kotler's 4 Ps, Golden Circle (Simon Sinek), Joe Sugarman's Psychological Triggers, The Irresistible Offer, Dan Kennedy's Copywriting Triangle, The 5 Ws and H, The Curiosity-Driven Headline, The P.R.O.V.E. Formula, The S.U.P.E.R. Framework, The C.O.D.E. Formula, The R.A.C.E. Formula, The P.O.W.E.R. Framework, The S.P.I.N. Framework, The B.A.N.K. System, The A.C.T.S. Formula, The P.R.I.M.E. Framework, The S.C.O.R.E. Formula, The T.R.U.S.T. Formula, The P.R.I.S.M. Framework, The R.A.I.S.E. Framework, The C.R.A.F.T. Framework, The S.T.O.R.Y. Selling System, The S.I.M.P.L.E. Formula, The H.E.A.R.T. Formula, The S.P.A.R.K. Formula, The B.U.I.L.D. Framework, The D.R.I.V.E. Framework, The 5 A's of Conversion, The G.R.O.W. Formula, The M.A.G.I.C. Formula, The I.M.P.A.C.T. Formula, The P.E.R.F.E.C.T. Formula, The A.S.P.I.R.E. Formula, The M.A.S.T.E.R.Y. Framework</pre>
+      </div>
+      <p class="note" style="margin-top:8px">القائمة بأسمائها الإنجليزية مقصودة: هذي مصطلحات يعرفها النموذج جاهزة، وترجمتها تضعف النتيجة.</p>
+    </div>
+
+    <div class="promptblock">
+      <div class="ptitle"><span class="n">البرومبت 3: تحليل العميل</span><span class="badge2">خصّصه · edit</span></div>
+      <div class="ptext">نبي نكتب إعلانات لـ <span class="ph">[أساس مكين: مطوّر عقاري سعودي يبيع شقق تمليك جاهزة في شمال الرياض، تبدأ من 730,000 ريال، فيها منزل ذكي وضمانات ممتدة ومرافق منفصلة للعوائل، تناسب أول تملّك والمؤهلين للدعم السكني]</span>. قبل ما نكتب أي نص للمنتج، استخدم قدرتك إنك تحدد: مين شخصية العميل المستهدف؟ وش نظام معتقداته؟ ووش نقاط الألم اللي ممكن يعاني منها هالشخص؟ عطني تحليلك.</div>
+      <div style="text-align:start;margin-top:8px"><button class="copy">نسخ</button></div>
+    </div>
+
+    <div class="shot"><span class="icn">[ screenshot ]</span> <b>اللقطة الأصلية كانت تعرض</b> مخرجات ChatGPT للبرومبت 3: تحليل لشخصية العميل ومعتقداته ونقاط ألمه، تستخدمه أساسًا للكتابة.</div>
+
+    <div class="promptblock">
+      <div class="ptitle"><span class="n">البرومبت 4: توليد العناوين والأوصاف</span><span class="badge2">خصّصه · edit</span></div>
+      <div class="ptext">بنكتب إعلانات لجوجل. المنصة تطلب «عناوين» و«أوصاف». العنوان لازم ما يتجاوز 30 حرفًا بما فيها المسافات، والوصف لازم ما يتجاوز 90 حرفًا، وأي زيادة ترفضها المنصة. ابدأ بـ 10 عناوين مرقّمة ما تتجاوز الحد، بعدها 10 أوصاف مرقّمة بنفس الطريقة. هدف العنوان والوصف واحد: توليد نقرة، وبعدها بيع. هذا مثال عنوان ووصف أبيك تعيد كتابتهم بزوايا مختلفة تلمس نقاط ألم ومعتقدات متنوعة:<br>
+      العنوان: <span class="ph">شقق تمليك شمال الرياض</span><br>
+      الوصف: <span class="ph">تملّك شقة جاهزة للسكن الآن. بدون انتظار بناء. تبدأ من 730,000 ريال.</span><br>
+      استخدم كل اللي تعلمته. عطني العناوين والأوصاف الحين.</div>
+      <div style="text-align:start;margin-top:8px"><button class="copy">نسخ</button></div>
+    </div>
+
+    <div class="shot"><span class="icn">[ screenshot ]</span> <b>اللقطة الأصلية كانت تعرض</b> مخرجات ChatGPT للبرومبت 4: 10 عناوين و10 أوصاف ضمن حدود الأحرف، جاهزة للتعديل.</div>
+
+    <div class="tip">
+      <span class="tip-label">تنبيه متكرّر · gotcha</span>
+      <p>ChatGPT يتلخبط أحيانًا في حدّ الأحرف (30 و90)، فراجع العدّاد بنفسك. لو طلعت أطول، اكتب له «عدد الأحرف غلط، التزم بالحد» ويصحّح بعد محاولة أو محاولتين.</p>
+    </div>
+    <p><strong>أهم خطوة:</strong> العناوين والأوصاف اللي ولّدها الذكاء الاصطناعي، رجّعها لإطار «رسالة البيع المصغّرة» وقصّها وقطّعها (الخطوة 4). لا تكسل وتنسخ وتلصق مباشرة في جوجل؛ النتيجة تطلع أحسن بكثير لمّا تعدّل بنفسك.</p>
+  </div>
+
+  <!-- CHEAT SHEET -->
+  <h2 class="sect-title">اللوحة السريعة <span class="en">The flow at a glance</span></h2>
+  <div class="flow">
+    <div class="f"><span class="fn">1</span><span class="ft">ابحث عن العميل</span><span class="fe">research</span></div>
+    <div class="f"><span class="fn">2</span><span class="ft">حوّلها إلى عرض</span><span class="fe">transform</span></div>
+    <div class="f"><span class="fn">3</span><span class="ft">الصيغة الجاهزة</span><span class="fe">plug &amp; play</span></div>
+    <div class="f"><span class="fn">4</span><span class="ft">قُص وتنعيم (الـ¾)</span><span class="fe">trim</span></div>
+    <div class="f"><span class="fn">5</span><span class="ft">الذكاء الاصطناعي</span><span class="fe">AI prompts</span></div>
+    <div class="f"><span class="fn">&#8635;</span><span class="ft">كرّر</span><span class="fe">rinse &amp; repeat</span></div>
+  </div>
+  <div class="formula" style="margin-top:18px">
+    <div class="pc">منفعة بدون نقطة الألم</div><div class="op">+</div>
+    <div class="pc">المنتج لشخصية العميل</div><div class="op">+</div>
+    <div class="pc">دليل اجتماعي</div>
+  </div>
+  <div class="limits">
+    <div class="l"><span class="nn">30</span><span class="tt">حرفًا حدّ العنوان (بالمسافات)</span></div>
+    <div class="l"><span class="nn">90</span><span class="tt">حرفًا حدّ الوصف (بالمسافات)</span></div>
+    <div class="l"><span class="nn">120</span><span class="tt">حرفًا بالمجمل تبيع فيها</span></div>
+  </div>
+
+  <!-- TROUBLESHOOTING -->
+  <h2 class="sect-title">أخطاء شائعة وحلولها <span class="en">Common mistakes</span></h2>
+  <div class="trouble">
+    <details>
+      <summary>ChatGPT يتجاوز عدد الأحرف المسموح</summary>
+      <div class="ans">طبيعي. راجع العدّاد بنفسك واكتب له <code>عدد الأحرف غلط، التزم بحد 30 و90</code>، يصحّح بعد محاولة أو محاولتين.</div>
+    </details>
+    <details>
+      <summary>العناوين تطلع عامة ومملة</summary>
+      <div class="ans">رجّع للخطوة 1. عامّية العنوان دليل على بحث ضعيف. كل ما كانت نقاط الألم أدق، طلع العنوان أحدّ.</div>
+    </details>
+    <details>
+      <summary>الوصف يقرأ كسرد مزايا، مو كرسالة بيع</summary>
+      <div class="ans">ما طبّقت الخطوة 4. قُص الوصف لجُمل قصيرة متتالية، وحوّله من «وش فيه المنتج» إلى «وش بيسوّي للعميل».</div>
+    </details>
+    <details>
+      <summary>ما ألقى نقاط ألم كافية للبحث</summary>
+      <div class="ans">وسّع المصادر: <code>Meta Ad Library</code> لإعلانات المنافسين، نقاشات X، تعليقات سناب وإنستغرام، والأسئلة المتكررة عند فريق المبيعات.</div>
+    </details>
+    <details>
+      <summary>الأرقام في المثال (الأسعار والأحياء) محدّثة؟</summary>
+      <div class="ans">أرقام مكين هنا للتوضيح فقط. راجع الأسعار وعدد الوحدات المحدّثة من فريق المبيعات أو الموقع قبل أي استخدام إعلاني حقيقي.</div>
+    </details>
+  </div>
+
+  <footer>
+    <div>
+      <span class="pill">TMD · Training</span>
+      <span class="pill">Asas Makeen</span>
+      <span class="pill">Google Ads</span>
+    </div>
+    <p>دليل تدريب داخلي، مُكيّف عن دليل «Mini-Sales Letters in Google Ads» مع توطين المثال على حساب أساس مكين العقاري.</p>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var container = btn.closest('.promptblock') || btn.closest('.code');
+      var parts = [];
+      container.querySelectorAll('.ptext, pre').forEach(function(el){
+        var t = el.innerText.trim();
+        if(t) parts.push(t);
+      });
+      var text = parts.join('\n');
+      navigator.clipboard.writeText(text).then(function(){
+        var old = btn.textContent;
+        btn.textContent = 'تم النسخ ✓';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1600);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

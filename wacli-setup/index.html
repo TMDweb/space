@@ -178,8 +178,8 @@
 <div class="wrap">
 
   <div class="intro">
-    <p><strong>ما هي wacli؟</strong> أداة سطر أوامر (Command Line) تربط واتساب بجهازك وتخزّن محادثاتك في قاعدة بيانات محلية على الماك. أي مساعد ذكاء اصطناعي يقدر يشغّل أوامر في الطرفية (مثل Claude Code أو Codex) يقدر يقرأ هذه المحادثات ويبحث فيها ويرسل رسائل، بدون أي إضافة أو ربط خاص.</p>
-    <p><strong>الوقت المتوقع:</strong> حوالي 5 إلى 10 دقائق. كل الأوامر تتنفّذ في تطبيق <span class="en-tag">Terminal</span> (الطرفية) على الماك.</p>
+    <p><strong>ما هي wacli؟</strong> أداة سطر أوامر (Command Line) تربط واتساب بجهازك وتخزّن محادثاتك في قاعدة بيانات محلية على الماك. أي مساعد ذكاء اصطناعي يقدر يشغّل أوامر في الترمنال (مثل Claude Code أو Codex) يقدر يقرأ هذه المحادثات ويبحث فيها ويرسل رسائل، بدون أي إضافة أو ربط خاص.</p>
+    <p><strong>الوقت المتوقع:</strong> حوالي 5 إلى 10 دقائق. كل الأوامر تتنفّذ في تطبيق <span class="en-tag">Terminal</span> (الترمنال) على الماك.</p>
   </div>
 
   <div class="prereq">
@@ -187,7 +187,7 @@
     <ul>
       <li>جهاز Mac يعمل بنظام macOS، مع تطبيق <span class="en-tag">Terminal</span> (موجود في Applications &gt; Utilities).</li>
       <li>هاتف فيه واتساب فعّال (لمسح رمز <span class="en-tag">QR</span> مرة واحدة).</li>
-      <li>مساعد ذكاء اصطناعي مثبّت في الطرفية: <span class="en-tag">Claude Code</span> أو <span class="en-tag">OpenAI Codex</span>. إذا ما كان مثبّتاً، ثبّته أولاً ثم ارجع للخطوة 6.</li>
+      <li>مساعد ذكاء اصطناعي مثبّت في الترمنال: <span class="en-tag">Claude Code</span> أو <span class="en-tag">OpenAI Codex</span>. إذا ما كان مثبّتاً، ثبّته أولاً ثم ارجع للخطوة 6.</li>
     </ul>
   </div>
 
@@ -197,7 +197,7 @@
       <div class="num">1</div>
       <h2>تثبيت Homebrew<span class="en">Install Homebrew (the package manager)</span></h2>
     </div>
-    <p>Homebrew هو مدير الحزم الذي نثبّت من خلاله wacli. الصق هذا الأمر في الطرفية واضغط Enter:</p>
+    <p>Homebrew هو مدير الحزم الذي نثبّت من خلاله wacli. الصق هذا الأمر في الترمنال واضغط Enter:</p>
     <div class="code">
       <button class="copy">نسخ</button>
       <pre>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</pre>
@@ -237,12 +237,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</pre>
       <div class="num">3</div>
       <h2>ربط رقمك في واتساب<span class="en">Link your WhatsApp number</span></h2>
     </div>
-    <p>شغّل أمر المصادقة، وراح يظهر رمز <span class="en-tag">QR</span> داخل الطرفية:</p>
+    <p>شغّل أمر المصادقة، وراح يظهر رمز <span class="en-tag">QR</span> داخل الترمنال:</p>
     <div class="code">
       <button class="copy">نسخ</button>
       <pre>wacli auth</pre>
     </div>
-    <p>من جوالك: افتح واتساب &lt; الإعدادات &lt; الأجهزة المرتبطة <span class="en-tag">(Linked Devices)</span> &lt; ربط جهاز &lt; امسح رمز الـ QR الظاهر في الطرفية.</p>
+    <p>من جوالك: افتح واتساب &lt; الإعدادات &lt; الأجهزة المرتبطة <span class="en-tag">(Linked Devices)</span> &lt; ربط جهاز &lt; امسح رمز الـ QR الظاهر في الترمنال.</p>
     <p class="note">بديل بدون كاميرا: الربط برقم الهاتف عبر <span class="en-tag">wacli auth --phone 9665XXXXXXXX</span>.</p>
   </div>
 
@@ -284,7 +284,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</pre>
       <div class="num">6</div>
       <h2>اربطه بمساعد الذكاء الاصطناعي<span class="en">Connect it to an AI agent</span></h2>
     </div>
-    <p><strong>الفكرة الأساسية:</strong> wacli مجرد أداة سطر أوامر على جهازك. أي مساعد يقدر يشغّل أوامر الطرفية يستخدمها تلقائياً، بدون أي إضافة (plugin) أو ربط خاص. كل ما تحتاجه أن تطلب منه بلغة عادية.</p>
+    <p><strong>الفكرة الأساسية:</strong> wacli مجرد أداة سطر أوامر على جهازك. أي مساعد يقدر يشغّل أوامر الترمنال يستخدمها تلقائياً، بدون أي إضافة (plugin) أو ربط خاص. كل ما تحتاجه أن تطلب منه بلغة عادية.</p>
 
     <div class="agents">
       <div class="agent">
@@ -293,7 +293,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</pre>
       </div>
       <div class="agent">
         <h4>OpenAI Codex <span class="en">/ كودكس</span></h4>
-        <p>نفس الطريقة تماماً: اطلب منه قراءة واتساب عبر wacli، وعند تنفيذ الأمر راح يطلب الموافقة على تشغيله؛ وافق عليه. لأن كليهما يشغّلان أوامر الطرفية، فالأداة نفسها تعمل مع الاثنين.</p>
+        <p>نفس الطريقة تماماً: اطلب منه قراءة واتساب عبر wacli، وعند تنفيذ الأمر راح يطلب الموافقة على تشغيله؛ وافق عليه. لأن كليهما يشغّلان أوامر الترمنال، فالأداة نفسها تعمل مع الاثنين.</p>
       </div>
     </div>
 
@@ -336,7 +336,7 @@ Run `wacli sync --once` first if the data looks stale.</pre>
   <div class="trouble">
     <details>
       <summary>تظهر رسالة <span class="en-tag">brew: command not found</span></summary>
-      <div class="ans">تخطّيت خطوة إضافة Homebrew للمسار في الخطوة 1. أعد تشغيل سطر <code>eval "$(/opt/homebrew/bin/brew shellenv)"</code>، أو أغلق الطرفية وافتحها من جديد.</div>
+      <div class="ans">تخطّيت خطوة إضافة Homebrew للمسار في الخطوة 1. أعد تشغيل سطر <code>eval "$(/opt/homebrew/bin/brew shellenv)"</code>، أو أغلق الترمنال وافتحه من جديد.</div>
     </details>
     <details>
       <summary>يطلب تثبيت <span class="en-tag">Command Line Tools</span></summary>

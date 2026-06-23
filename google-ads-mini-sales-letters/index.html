@@ -66,6 +66,17 @@
   h1{font-size:33px;font-weight:700;margin:0 0 6px;line-height:1.45}
   .h1-en{display:block;font-size:19px;color:var(--en);font-weight:400;font-style:italic;direction:ltr;margin-top:8px}
   .sub{color:var(--muted);max-width:660px;margin:16px auto 0;font-size:17px}
+  .topcta{
+    display:inline-flex;align-items:center;gap:9px;
+    margin-top:6px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#2a1d00;font-weight:700;font-size:16.5px;
+    padding:13px 26px;border-radius:12px;text-decoration:none;
+    border:1px solid var(--accent);box-shadow:0 6px 20px rgba(252,191,44,.15);
+    transition:.15s;
+  }
+  .topcta:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .topcta .ar{font-family:var(--mono);font-weight:700}
   /* Intro */
   .intro{
     background:var(--panel);border:1px solid var(--line);
@@ -238,12 +249,15 @@
     <span class="h1-en">Mini-Sales Letters for Google Ads, powered by AI</span>
   </h1>
   <p class="sub">دليل خطوة بخطوة يحوّل وصف إعلان جوجل من سطرين باردين إلى رسالة بيع كاملة تبيع قبل ما يوصل العميل للصفحة. وتسوّيها في أقل من 10 دقائق بطريقة «3¾» السهلة، مع مثال حقيقي على مشاريع أساس مكين السكنية.</p>
+  <div style="margin-top:26px">
+    <a class="topcta" href="https://docs.google.com/document/d/1Fi1NQ_kBWUhEcgVWo6AxA-DywPsqI3h1cEMU7Ecif1Y/edit?usp=sharing" target="_blank" rel="noopener">مثال لمخرج أنتجه سياف باستخدام هذا الـ Workflow <span class="ar">&#8599;</span></a>
+  </div>
 </header>
 
 <div class="wrap">
 
   <div class="intro">
-    <p><strong>المشكلة:</strong> في إعلانات جوجل عندك «عنوان» و«وصف» يوصلون لجمهورك. العنوان ما يتجاوز <span class="gold">30 حرفًا</span> بما فيها المسافات، والوصف ما يتجاوز <span class="gold">90 حرفًا</span>. يعني <span class="gold">120 حرفًا فقط</span> بالمجمل تبيع فيها. مساحة ضيّقة جدًا، ولو قلت غير كذا چان كذبت عليك.</p>
+    <p><strong>المشكلة:</strong> في إعلانات جوجل عندك «عنوان» و«وصف» يوصلون لجمهورك. العنوان ما يتجاوز <span class="gold">30 حرفًا</span> بما فيها المسافات، والوصف ما يتجاوز <span class="gold">90 حرفًا</span>. يعني <span class="gold">120 حرفًا فقط</span> بالمجمل تبيع فيها. مساحة ضيّقة جدًا، ولو قلت غير كذا فأنا أكذب عليك.</p>
     <p><strong>الحل:</strong> بدل الكلام المكرّر اللي يستخدمه الكل، نستخدم <em class="gold">الكتابة بالاستجابة المباشرة</em> (Direct Response) ونسوّي «رسالة بيع مصغّرة» داخل الوصف، ونخلّي الذكاء الاصطناعي يسوّي الأساس بدالنا.</p>
     <p><strong>الوقت المتوقع:</strong> 5 إلى 10 دقائق لكل إعلان بعد ما تتقن الطريقة.</p>
   </div>
@@ -343,16 +357,16 @@
       <div class="num">5</div>
       <h2>شغّل الذكاء الاصطناعي<span class="en">Put AI to work</span></h2>
     </div>
-    <p>هنا الجزء الممتع: نخلّي ChatGPT يكمّل لنا الشغل مع شوية تعديل منك. انسخ البرومبتات بالترتيب، وعند البرومبت 3 و4 خصّصها حسب اللي تعلن عنه.</p>
-    <p class="note">بما إن مكين عميل عربي، البرومبتات مكتوبة بالعربي عشان يطلع لك ChatGPT نص إعلان عربي جاهز مباشرة. استخدم زر «نسخ» في كل صندوق.</p>
+    <p>هنا الجزء الممتع: نخلّي ChatGPT يكمّل لنا الشغل مع شوية تعديل منك. انسخ البرومتات بالترتيب، وعند البرومت 3 و4 خصّصها حسب اللي تعلن عنه.</p>
+    <p class="note">بما إن مكين عميل عربي، البرومتات مكتوبة بالعربي عشان يطلع لك ChatGPT نص إعلان عربي جاهز مباشرة. استخدم زر «نسخ» في كل صندوق.</p>
 
     <div class="promptblock">
-      <div class="ptitle"><span class="n">البرومبت 1: تجهيز الشخصية</span><button class="copy">نسخ</button></div>
+      <div class="ptitle"><span class="n">البرومت 1: تجهيز الشخصية</span><button class="copy">نسخ</button></div>
       <div class="ptext">أنت «CopyChad»، مساعد كتابة إعلانية محترف. خبير في تحليل أي نص بيعي واستخراج أفضل صيغة كتابية له. مهمتك: تاخذ المحتوى اللي أعطيك إياه، وتختار 6 صيغ من اللي تعرفها وتعيد كتابة المحتوى فيها. في الرسالة الجاية بعطيك قائمة الصيغ والأطر اللي تعرفها. لا تطلع إلا قائمة منسّقة فيها 6 نسخ من المحتوى، إلا إذا كان فيه لبس أو ما وصلك محتوى. أحيانًا تقدر تختم ردك باقتباس لأحد كبار المسوّقين. وممكن أطلب منك تعطيني الصيغة المثالية لأي نص بيعي، فاشرح جوابك خطوة بخطوة. الرسالة الجاية بعلّمك كل الأطر. إذا فهمت، اذكر اسمك ومهمتك في جملة وحدة وانتظر القائمة.</div>
     </div>
 
     <div class="promptblock">
-      <div class="ptitle"><span class="n">البرومبت 2: قائمة الصيغ</span><button class="copy">نسخ</button></div>
+      <div class="ptitle"><span class="n">البرومت 2: قائمة الصيغ</span><button class="copy">نسخ</button></div>
       <div class="ptext">هذي كل صيغ وأطر الكتابة الإعلانية اللي تعرفها (خلّ أسماءها كما هي، فهي مصطلحات معروفة يفهمها النموذج جاهزة):</div>
       <div class="code" style="margin-top:10px">
         <pre style="white-space:pre-wrap;word-break:break-word">AIDA, PAS, BAB, 4 Cs, 4 Ps, 4 Us, FAB, QUEST, ACCA, OATH, APP, RECIPE, The Rule of Three, The 6+1 Model, SCQA, KISS, SUCCES, SOAP, PPPP, SLAP, STAR, 3-Act Structure, PASTOR, WWHW, VAD, 5 Ws, SSS, 2-2-2, BRIEF, BDA, DIP, 7-Step Story Arc, The LIFT Model, CAKE, SIR, TEAR, PPF, SODA, CTR, CLAIM, CODA, The Hook-Subhook System, The Power of One, The 3 R's, CUB, The 5 E's, The Value Proposition Canvas, The Copywriting Grid, COPY, TACTIC, BLUR, Clayton Makepeace's 4-Legged Stool, Ray Edwards' PASTOR, Joe Sugarman's The Advertorial, Bob Bly's Lead-Gen Model, Gary Bencivenga's Persuasion Equation, Gary Halbert's A-Pile/B-Pile, John Carlton's Simple Writing System, Dan Kennedy's Godfather Offer, Frank Kern's 4 Day Cash Machine, Jeff Walker's Product Launch Formula, Perry Belcher's 21-Step Sales Letter Formula, Eugene Schwartz's Breakthrough Advertising, Ryan Deiss' The Machine, Ben Settle's Email Players, John Caples' Tested Advertising Methods, David Ogilvy's How to Create Advertising that Sells, Robert Collier's Letter Book, Michael Masterson's Ready Fire Aim, AWAI's 6-Figure Copywriting, Joanna Wiebe's Conversion Copywriting, Seth Godin's Permission Marketing, Brian Clark's Copyblogger, Dean Jackson's 9-Word Email, Neville Medhora's Kopywriting Kourse, Andre Chaperon's Autoresponder Madness, Russell Brunson's Dotcom Secrets, Jon Morrow's Headline Hacks, Bond Halbert's Copywriting Method, Don Miller's StoryBrand, Schwartz's Market Sophistication, Cialdini's Principles of Persuasion, Heath Brothers' Made to Stick, The Skyscraper Technique, The Hero's Journey, Carnegie's How to Win Friends and Influence People, Michael Gerber's E-Myth, Seth Godin's Purple Cow, Voss's Negotiation Framework, Emotional Selling Proposition (ESP), Kotler's 4 Ps, Golden Circle (Simon Sinek), Joe Sugarman's Psychological Triggers, The Irresistible Offer, Dan Kennedy's Copywriting Triangle, The 5 Ws and H, The Curiosity-Driven Headline, The P.R.O.V.E. Formula, The S.U.P.E.R. Framework, The C.O.D.E. Formula, The R.A.C.E. Formula, The P.O.W.E.R. Framework, The S.P.I.N. Framework, The B.A.N.K. System, The A.C.T.S. Formula, The P.R.I.M.E. Framework, The S.C.O.R.E. Formula, The T.R.U.S.T. Formula, The P.R.I.S.M. Framework, The R.A.I.S.E. Framework, The C.R.A.F.T. Framework, The S.T.O.R.Y. Selling System, The S.I.M.P.L.E. Formula, The H.E.A.R.T. Formula, The S.P.A.R.K. Formula, The B.U.I.L.D. Framework, The D.R.I.V.E. Framework, The 5 A's of Conversion, The G.R.O.W. Formula, The M.A.G.I.C. Formula, The I.M.P.A.C.T. Formula, The P.E.R.F.E.C.T. Formula, The A.S.P.I.R.E. Formula, The M.A.S.T.E.R.Y. Framework</pre>
@@ -361,15 +375,15 @@
     </div>
 
     <div class="promptblock">
-      <div class="ptitle"><span class="n">البرومبت 3: تحليل العميل</span><span class="badge2">خصّصه · edit</span></div>
+      <div class="ptitle"><span class="n">البرومت 3: تحليل العميل</span><span class="badge2">خصّصه · edit</span></div>
       <div class="ptext">نبي نكتب إعلانات لـ <span class="ph">[أساس مكين: مطوّر عقاري سعودي يبيع شقق تمليك جاهزة في شمال الرياض، تبدأ من 730,000 ريال، فيها منزل ذكي وضمانات ممتدة ومرافق منفصلة للعوائل، تناسب أول تملّك والمؤهلين للدعم السكني]</span>. قبل ما نكتب أي نص للمنتج، استخدم قدرتك إنك تحدد: مين شخصية العميل المستهدف؟ وش نظام معتقداته؟ ووش نقاط الألم اللي ممكن يعاني منها هالشخص؟ عطني تحليلك.</div>
       <div style="text-align:start;margin-top:8px"><button class="copy">نسخ</button></div>
     </div>
 
-    <div class="shot"><span class="icn">[ screenshot ]</span> <b>اللقطة الأصلية كانت تعرض</b> مخرجات ChatGPT للبرومبت 3: تحليل لشخصية العميل ومعتقداته ونقاط ألمه، تستخدمه أساسًا للكتابة.</div>
+    <div class="shot"><span class="icn">[ screenshot ]</span> <b>اللقطة الأصلية كانت تعرض</b> مخرجات ChatGPT للبرومت 3: تحليل لشخصية العميل ومعتقداته ونقاط ألمه، تستخدمه أساسًا للكتابة.</div>
 
     <div class="promptblock">
-      <div class="ptitle"><span class="n">البرومبت 4: توليد العناوين والأوصاف</span><span class="badge2">خصّصه · edit</span></div>
+      <div class="ptitle"><span class="n">البرومت 4: توليد العناوين والأوصاف</span><span class="badge2">خصّصه · edit</span></div>
       <div class="ptext">بنكتب إعلانات لجوجل. المنصة تطلب «عناوين» و«أوصاف». العنوان لازم ما يتجاوز 30 حرفًا بما فيها المسافات، والوصف لازم ما يتجاوز 90 حرفًا، وأي زيادة ترفضها المنصة. ابدأ بـ 10 عناوين مرقّمة ما تتجاوز الحد، بعدها 10 أوصاف مرقّمة بنفس الطريقة. هدف العنوان والوصف واحد: توليد نقرة، وبعدها بيع. هذا مثال عنوان ووصف أبيك تعيد كتابتهم بزوايا مختلفة تلمس نقاط ألم ومعتقدات متنوعة:<br>
       العنوان: <span class="ph">شقق تمليك شمال الرياض</span><br>
       الوصف: <span class="ph">تملّك شقة جاهزة للسكن الآن. بدون انتظار بناء. تبدأ من 730,000 ريال.</span><br>
@@ -377,7 +391,7 @@
       <div style="text-align:start;margin-top:8px"><button class="copy">نسخ</button></div>
     </div>
 
-    <div class="shot"><span class="icn">[ screenshot ]</span> <b>اللقطة الأصلية كانت تعرض</b> مخرجات ChatGPT للبرومبت 4: 10 عناوين و10 أوصاف ضمن حدود الأحرف، جاهزة للتعديل.</div>
+    <div class="shot"><span class="icn">[ screenshot ]</span> <b>اللقطة الأصلية كانت تعرض</b> مخرجات ChatGPT للبرومت 4: 10 عناوين و10 أوصاف ضمن حدود الأحرف، جاهزة للتعديل.</div>
 
     <div class="tip">
       <span class="tip-label">تنبيه متكرّر · gotcha</span>

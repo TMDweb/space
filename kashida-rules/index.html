@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TMD · قواعد الكشيدة في الخطوط العربية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:#0C0E1D; --white:#fff; --navy:#29366c; --gold:#fcbf2c;
+    --med:#2f3e75; --pale:#c5cce8; --teal:#88c9c4; --pink:#ea4b6e;
+    --surface:#141B36; --paper:#fbfaf4;
+    --fill:rgba(47,62,117,.14); --fill-2:rgba(47,62,117,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;letter-spacing:normal}
+  body{
+    font-family:"IBM Plex Sans Arabic",Arial,sans-serif;
+    background:var(--dark); color:var(--white);
+    line-height:1.6; padding:40px 22px 64px; max-width:1040px; margin:0 auto;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* top bar */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}
+  .top .logo{height:44px;width:auto;display:block}
+  .tag{
+    color:var(--dark); background:var(--gold); font-size:12px; font-weight:600;
+    padding:6px 12px; border-radius:4px; white-space:nowrap;
+  }
+
+  /* hero */
+  h1{font-size:40px;font-weight:700;line-height:1.2;margin-bottom:6px}
+  h1 b{color:var(--gold);font-weight:700}
+  .sub{color:var(--pale);font-size:16px;max-width:780px;font-weight:400}
+  .bar{height:6px;width:64px;background:var(--gold);margin:18px 0 30px;border-radius:0}
+
+  .intro{
+    border:1px solid var(--med); background:var(--fill); border-radius:6px;
+    padding:20px 24px; font-size:16px; color:#e9ecf6; margin-bottom:14px;
+  }
+  .intro b{color:var(--white);font-weight:600}
+  .glyph{font-family:"Amiri",serif;color:var(--gold);font-size:1.35em}
+
+  /* section heads */
+  .sec-head{margin:48px 0 18px}
+  h2.sec{font-size:14px;color:var(--teal);font-weight:700;margin-bottom:6px}
+  .sec-head .line{height:2px;width:46px;background:var(--gold)}
+  .sec-note{color:var(--pale);font-size:13px;margin-top:8px}
+
+  /* functions grid */
+  .functions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .func{border:1px solid var(--med);background:var(--fill);border-radius:6px;padding:16px 18px}
+  .func .n{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:4px;background:var(--gold);
+    color:var(--dark);font-weight:700;font-size:15px;margin-bottom:10px;
+  }
+  .func h3{font-size:15px;font-weight:600;color:var(--white);margin-bottom:4px}
+  .func p{font-size:13px;color:var(--pale);line-height:1.65}
+
+  /* golden / history list */
+  .list{border:1px solid var(--med);background:var(--fill);border-radius:6px;padding:6px 22px}
+  .list li{list-style:none;position:relative;padding:14px 24px 14px 0;border-bottom:1px solid var(--med);font-size:15px;color:#e3e7f3}
+  .list li:last-child{border-bottom:0}
+  .list li::before{content:"";position:absolute;right:4px;top:21px;width:8px;height:8px;background:var(--gold)}
+  .list b{color:var(--white);font-weight:600}
+  .list .ar{font-family:"Amiri",serif;font-size:1.15em;color:var(--gold)}
+
+  /* script card */
+  .card{border:1px solid var(--med);background:var(--fill);border-radius:6px;padding:24px 26px;margin-bottom:16px;position:relative}
+  .card::before{content:"";position:absolute;top:0;right:0;width:4px;height:100%;background:var(--gold);border-radius:0 6px 6px 0}
+  .card h2.name{font-size:24px;font-weight:700;color:var(--white);margin-bottom:8px}
+  .badge{display:inline-block;font-size:12px;font-weight:600;padding:4px 12px;border-radius:4px;margin-bottom:14px}
+  .badge.balanced{background:rgba(136,201,196,.16);color:var(--teal);border:1px solid var(--teal)}
+  .badge.regular{background:rgba(252,191,44,.14);color:var(--gold);border:1px solid var(--gold)}
+  .badge.rare{background:rgba(197,204,232,.12);color:var(--pale);border:1px solid var(--med)}
+  .badge.forbidden{background:rgba(234,75,110,.14);color:var(--pink);border:1px solid var(--pink)}
+  .badge.geometric{background:rgba(47,62,117,.4);color:#9fb0e6;border:1px solid var(--med)}
+  .rule{font-size:15px;color:#e3e7f3;margin-bottom:18px;line-height:1.7}
+
+  /* specimen panels (calligraphy on light paper) */
+  .specimen-box{background:var(--paper);border:1px solid #e6e1d2;border-radius:5px;padding:16px 20px}
+  .specimen-label{font-size:11px;color:var(--med);font-weight:600;margin-bottom:6px}
+  .specimen{font-size:2.3rem;line-height:2;color:#16203f}
+  .specimen.amiri{font-family:"Amiri",serif}
+  .specimen.ruqaa{font-family:"Aref Ruqaa",serif}
+  .specimen.kufi{font-family:"Reem Kufi",sans-serif;font-size:1.9rem}
+  .specimen.nastaliq{font-family:"Noto Nastaliq Urdu",serif;font-size:1.6rem;line-height:2.8}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .compare .specimen{font-size:2rem}
+  .mark{font-size:11px;font-weight:700;margin-bottom:6px}
+  .mark.good{color:#2f8f6b} .mark.bad{color:#c0344f}
+  .note{font-size:13px;color:var(--pale);margin-top:12px}
+
+  /* do / dont */
+  .dodont{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .col{border:1px solid var(--med);background:var(--fill);border-radius:6px;padding:4px 22px 16px}
+  .col.allow{border-top:3px solid var(--teal)}
+  .col.deny{border-top:3px solid var(--pink)}
+  .col h3{font-size:15px;font-weight:700;margin:16px 0 6px}
+  .col.allow h3{color:var(--teal)} .col.deny h3{color:var(--pink)}
+  .col ul{list-style:none}
+  .col li{position:relative;padding:8px 22px 8px 0;font-size:14px;color:#e3e7f3;border-bottom:1px solid var(--med)}
+  .col li:last-child{border-bottom:0}
+  .col li::before{content:"";position:absolute;right:4px;top:15px;width:7px;height:7px;border-radius:0}
+  .col.allow li::before{background:var(--teal)}
+  .col.deny li::before{background:var(--pink)}
+  .center-note{text-align:center;max-width:720px;margin:14px auto 0;font-size:13px;color:var(--pale);line-height:1.7}
+
+  /* footer */
+  footer{margin-top:50px;padding-top:24px;border-top:1px solid var(--med);font-size:13px;color:var(--pale);line-height:1.9}
+  footer .ft-logo{height:34px;width:auto;display:block;margin-bottom:14px}
+  footer b{color:var(--white);font-weight:600}
+  footer a{color:var(--gold);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  footer .src{display:block}
+  footer .disc{display:block;margin-top:10px;color:var(--med)}
+
+  @media(max-width:760px){
+    .functions{grid-template-columns:1fr}
+    .compare,.dodont{grid-template-columns:1fr}
+    h1{font-size:30px} .specimen{font-size:1.9rem}
+  }
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <img class="logo" src="TMD-logo-white.svg" alt="TMD">
+    <span class="tag">دليل مرجعي · قواعد الكشيدة</span>
+  </div>
+
+  <h1>قواعد <b>الكشيدة</b> في الخطوط العربية</h1>
+  <p class="sub">الجماليات والضوابط: متى تُمدّ الحروف، وأين تُمنع، وكيف يختلف ذلك من خطٍّ إلى آخر.</p>
+  <div class="bar"></div>
+
+  <div class="intro">
+    <b>الكشيدة</b> (أو التطويل، الحرف <span class="glyph">ـ</span>) هي مدّ الوصلة الأفقية بين حرفين متصلين.
+    ليست حرفًا يُنطق، بل أداة جمالية وهندسية ظهرت مع <b>خط الثلث في العصر العباسي</b> لمعالجة مشاكل التناسب
+    والتوازن. يستخدمها الخطّاط لضبط إيقاع السطر وملء فراغاته ومحاذاة حوافه، ولكل خطٍّ قواعده الخاصة في استعمالها.
+  </div>
+
+  <!-- الوظائف -->
+  <div class="sec-head">
+    <h2 class="sec">وظائف الكشيدة</h2>
+    <div class="line"></div>
+    <p class="sec-note">لماذا توجد الكشيدة أصلًا؟</p>
+  </div>
+  <div class="functions">
+    <div class="func"><span class="n">1</span><h3>تبرير السطر ومحاذاة الهوامش</h3><p>الكلمة العربية لا تُقطع بين سطرين، فتُمدّ الحروف لضبط طول السطر حتى تستوي الحواف دون تشويه الكلمات.</p></div>
+    <div class="func"><span class="n">2</span><h3>التوازن البصري وملء الفراغات</h3><p>توزّع الكتلة السوداء والبيضاء على السطر فلا تبقى فجوات مزعجة، وهي وظيفتها الجمالية الأساسية.</p></div>
+    <div class="func"><span class="n">3</span><h3>التأكيد والإبراز</h3><p>تُستعمل لتمييز العناوين ورؤوس الفصول وبعض الأسماء، فتلفت العين إلى الكلمة المهمة.</p></div>
+    <div class="func"><span class="n">4</span><h3>تحسين المقروئية ومنع الالتباس</h3><p>تفصل بين النبرات المتتالية حتى لا تلتبس بحرفَي السين والشين، فيتضح شكل الكلمة.</p></div>
+    <div class="func"><span class="n">5</span><h3>التعبير عن الهوية والتكوين الفني</h3><p>في الخط الحر واللوحات تُبنى بها تكوينات بصرية متقدمة تمنح النص طابعًا وهويّة.</p></div>
+    <div class="func"><span class="n">6</span><h3>ضبط مواضع الحركات</h3><p>المدّ يفسح مكانًا مناسبًا للشكل والتشكيل (الحركات والنقاط) فوق الحروف وتحتها.</p></div>
+  </div>
+
+  <!-- القواعد العامة -->
+  <div class="sec-head">
+    <h2 class="sec">القواعد الذهبية العامة</h2>
+    <div class="line"></div>
+    <p class="sec-note">ضوابط تسري على كل الخطوط</p>
+  </div>
+  <ul class="list">
+    <li>الأصل أن تُمدّ <b>كلمة واحدة في السطر الواحد</b>، و<b>حرف واحد في الكلمة الواحدة</b>؛ والإكثار يُفسد التوازن.</li>
+    <li>تُضاف الكشيدة <b>بعد حرف يتصل بما بعده فقط</b>. أما الحروف التي لا تتصل بتاليها (<span class="ar">ا د ذ ر ز و ؤ ة</span>) فلا تقبل كشيدة بعدها.</li>
+    <li>الكشيدة <b>مدّ للوصلة بين حرفين متصلين</b>، لا تمطيط للحرف نفسه ولا وصلٌ للحروف المنفصلة.</li>
+    <li>تُوضع بين <b>تركيبات حروف معيّنة</b>، غالبًا تلك التي لا تكوّن رابطة فيما بينها.</li>
+    <li><b>لا تُكدَّس</b> عدة كشيدات في كلمة واحدة لإطالتها قسرًا؛ هذا خطأ شائع في النصوص الرقمية.</li>
+  </ul>
+
+  <!-- الخطوط -->
+  <div class="sec-head">
+    <h2 class="sec">الكشيدة في كل خط</h2>
+    <div class="line"></div>
+    <p class="sec-note">لكل خطٍّ قاعدته الخاصة</p>
+  </div>
+
+  <div class="card">
+    <h2 class="name">الثلث والنسخ</h2>
+    <span class="badge balanced">تُستخدم بحساب دقيق</span>
+    <p class="rule">تُستخدم الكشيدة بحساب دقيق لتحقيق التوازن البصري وملء الفراغات في السطر، لا للزينة فقط. الخطّاط يوزّعها بحيث لا تتكرر بكثرة في سطر واحد ولا تجتمع في كلمة واحدة.</p>
+    <div class="compare">
+      <div class="specimen-box"><div class="mark good">توزيع متوازن</div><div class="specimen amiri">بسـم اللـه الرحمـن</div></div>
+      <div class="specimen-box"><div class="mark bad">تكدّس في كلمة واحدة</div><div class="specimen amiri">بسـمـمـم الله الرحمن</div></div>
+    </div>
+    <p class="note">مثال توضيحي: المدّ موزَّع على الكلمات لملء السطر بانتظام، لا متراكمًا في موضع واحد.</p>
+  </div>
+
+  <div class="card">
+    <h2 class="name">الخط الفارسي (التعليق)</h2>
+    <span class="badge regular">تُستخدم بانتظام</span>
+    <p class="rule">تُستخدم الكشيدة بانتظام في الفارسي (التعليق والنستعليق)، لكنها تنساب مع ميل السطر المعلّق المنحدر من أعلى اليمين إلى أسفل اليسار، فتأتي ممدودة رشيقة تابعة لحركة الخط لا أفقية صارمة.</p>
+    <div class="specimen-box"><div class="specimen-label">مثال توضيحي · مدّ منساب مع انحدار السطر</div><div class="specimen nastaliq">من روائع الخط الفارسي</div></div>
+    <p class="note">المدّ هنا جزء من إيقاع الخط المائل، لا خطًّا مستقيمًا مسطّحًا كما في الثلث.</p>
+  </div>
+
+  <div class="card">
+    <h2 class="name">الخط الديواني</h2>
+    <span class="badge rare">نادرة جدًا أو معدومة</span>
+    <p class="rule">الكشيدة نادرة جدًا أو تكاد تكون معدومة، لأن هذه الخطوط تعتمد على تشابك الحروف وتقوّسها بدلًا من المدّ الأفقي.</p>
+    <div class="specimen-box"><div class="specimen-label">مثال توضيحي · الاعتماد على التشابك لا المدّ</div><div class="specimen ruqaa">من جمال الخط الديواني</div></div>
+    <p class="note">الحروف تتداخل وتتقوّس فوق بعضها، فلا حاجة لإطالة الوصلات الأفقية.</p>
+  </div>
+
+  <div class="card">
+    <h2 class="name">خط الرقعة</h2>
+    <span class="badge forbidden">ممنوعة تقريبًا</span>
+    <p class="rule">الكشيدة ممنوعة تمامًا تقريبًا، وهذا من أبرز ما يميّز خط الرقعة عن غيره؛ فهو خطّ مضغوط ابتُكر للكتابة السريعة، والمدّ يلتبس فيه بحرف السين.</p>
+    <div class="compare">
+      <div class="specimen-box"><div class="mark good">بلا تطويل (الصواب)</div><div class="specimen ruqaa">خط الرقعة</div></div>
+      <div class="specimen-box"><div class="mark bad">مع كشيدة (مخالف)</div><div class="specimen ruqaa">خـط الرقعـة</div></div>
+    </div>
+    <p class="note">الكلمات تُكتب مرصوصة قصيرة الوصلات، وإضافة الكشيدة تُعدّ خطأً في هذا الخط.</p>
+  </div>
+
+  <div class="card">
+    <h2 class="name">الخط الكوفي</h2>
+    <span class="badge geometric">هندسية منظّمة</span>
+    <p class="rule">تُستخدم الكشيدة بشكل هندسي منظّم، خاصة في الكوفي المربّع، حيث تصبح المدود امتدادات محسوبة تخدم البناء الهندسي للنص.</p>
+    <div class="specimen-box"><div class="specimen-label">مثال توضيحي · مدود محسوبة ضمن شبكة هندسية</div><div class="specimen kufi">الخـط الكوفـي المربـع</div></div>
+    <p class="note">المدّ هنا ليس للتزيين بل جزء من النظام الهندسي الذي يملأ الشبكة بانتظام.</p>
+  </div>
+
+  <!-- مواضع الإضافة والمنع -->
+  <div class="sec-head">
+    <h2 class="sec">أين تُوضع وأين تُمنع</h2>
+    <div class="line"></div>
+    <p class="sec-note">قواعد على مستوى الحروف (مستندة إلى قواعد النسخ)</p>
+  </div>
+  <div class="dodont">
+    <div class="col allow">
+      <h3>مواضع تُضاف فيها</h3>
+      <ul>
+        <li>قبل التاء أو الهاء المربوطة في آخر الكلمة</li>
+        <li>قبل آخر حرف من الكلمة</li>
+        <li>قبل الألف المتطرفة</li>
+        <li>قبل الراء</li>
+        <li>بين النبرات لمنع التباسها بالسين والشين</li>
+        <li>على حروف السين والصاد (الأشكال الأولى والوسطى)</li>
+      </ul>
+    </div>
+    <div class="col deny">
+      <h3>مواضع تُمنع فيها</h3>
+      <ul>
+        <li>قبل الواو</li>
+        <li>قبل الياء المنتهية</li>
+        <li>بين نبرة ونون منتهية</li>
+        <li>بين نبرة وراء متصلة</li>
+        <li>بعد "ال" التعريف</li>
+        <li>بعد لام أول الكلمة، وبين لامين في الوسط، وبين لام ودال</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- الأصيلة مقابل الرقمية -->
+  <div class="sec-head">
+    <h2 class="sec">الكشيدة الأصيلة مقابل التطويل الرقمي</h2>
+    <div class="line"></div>
+    <p class="sec-note">فرقٌ جوهري بين اليد والحاسوب</p>
+  </div>
+  <div class="dodont">
+    <div class="col allow">
+      <h3>الكشيدة في الخط اليدوي</h3>
+      <ul>
+        <li>إعادة تشكيل للحرف بانحناءة لطيفة، لا مجرّد تمطيط</li>
+        <li>طولها متغيّر يناسب موضعها وأسلوب الخط</li>
+        <li>محكومة بقواعد دقيقة لكل حرف وموضع</li>
+      </ul>
+    </div>
+    <div class="col deny">
+      <h3>التطويل الرقمي (U+0640 · ـ)</h3>
+      <ul>
+        <li>خطّ مستقيم صارم أُدخل مع الطباعة المعدنية نحو 1516</li>
+        <li>طول وموضع ثابتان، وتُكدَّس نسخه لإطالة الكلمة</li>
+        <li>يُفسد البحث في النص ويُسيء للشكل إذا استُخدم حشوًا</li>
+      </ul>
+    </div>
+  </div>
+  <p class="center-note">البرمجيات (مثل نظام مايكروسوفت للتبرير) ترتّب أولوية مواضع التطويل: الكشيدات المُدرجة يدويًا أولًا، ثم السين والصاد، ثم الأشكال النهائية لبعض الحروف وهكذا. والأفضل تبرير النص بالمسافات وميزات الخط بدل تكرار الرمز <span class="glyph">ـ</span> يدويًا.</p>
+
+  <!-- نبذة تاريخية -->
+  <div class="sec-head">
+    <h2 class="sec">نبذة تاريخية</h2>
+    <div class="line"></div>
+  </div>
+  <ul class="list">
+    <li>ظهرت الكشيدة مع <b>خط الثلث في العصر العباسي</b> لمعالجة مشاكل التناسب والتوازن في السطر.</li>
+    <li>في المخطوطات كان النسّاخ يملؤون السطر بثلاث وسائل: <b>تنويع أشكال الحروف ومدّها</b>، وضبط <b>كثافة الأسود والأبيض</b>، و<b>تشكيل الكلمات</b> (التركيب العمودي وتصغير الحجم).</li>
+    <li>طُرفة تاريخية: بعض الخطّاطين الذين كانوا يُحاسَبون <b>بالصفحة</b> أكثروا من الكشيدات لمدّ النص على عددٍ أكبر من الصفحات.</li>
+    <li>أداة <b>التطويل المستقيم</b> دخلت مع الطباعة المعدنية، ثم رُمِّزت في يونيكود سنة 1993، فبقيت في لوحات المفاتيح رغم كونها حلًّا تقنيًا قديمًا.</li>
+  </ul>
+
+  <footer>
+    <img class="ft-logo" src="TMD-logo-white.svg" alt="TMD">
+    <b>المصادر</b>
+    <span class="src">القواعد لكل خط: تغريدة <a href="https://x.com/OmimDesigner/status/2052377199186002011" target="_blank" rel="noopener">@OmimDesigner</a></span>
+    <span class="src">التعريف والوظائف والتاريخ: <a href="https://en.wikipedia.org/wiki/Kashida" target="_blank" rel="noopener">Wikipedia, Kashida</a></span>
+    <span class="src">التبرير وأولوية المواضع: <a href="http://www.khtt.net/en/page/1821/the-big-kashida-secret" target="_blank" rel="noopener">Khatt Foundation, The Big Kashida Secret</a></span>
+    <span class="src">الأصيلة مقابل الرقمية: <a href="https://research.reading.ac.uk/typoarabic/on-arabic-justification-part-1/" target="_blank" rel="noopener">University of Reading, TypoArabic</a></span>
+    <span class="src">مواضع الإضافة والمنع: <a href="https://shoairschool.com/basics-of-kashida-in-design/" target="_blank" rel="noopener">شعير سكول, الكشيدة في التصميم</a></span>
+    <span class="disc">النصوص النظرية منقولة عن المصادر أعلاه، والأمثلة البصرية مضافة للتوضيح.</span>
+  </footer>
+
+</body>
+</html>

@@ -9,11 +9,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Regular.woff2') format('woff2');
+    font-weight:400;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Medium.woff2') format('woff2');
+    font-weight:500;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Thmanyah Serif Text';
+    src:url('fonts/thmanyahseriftext-Bold.woff2') format('woff2');
+    font-weight:700;font-style:normal;font-display:swap;
+  }
   :root{
     --dark:#0C0E1D; --white:#fff; --navy:#29366c; --gold:#fcbf2c;
     --med:#2f3e75; --pale:#c5cce8; --teal:#88c9c4; --pink:#ea4b6e;
     --surface:#141B36; --paper:#fbfaf4;
     --fill:rgba(47,62,117,.14); --fill-2:rgba(47,62,117,.22);
+    --serif:'Thmanyah Serif Text', Georgia, 'Times New Roman', serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;letter-spacing:normal}
   body{
@@ -32,7 +48,7 @@
   }
 
   /* hero */
-  h1{font-size:40px;font-weight:700;line-height:1.2;margin-bottom:6px}
+  h1{font-family:var(--serif);font-size:42px;font-weight:700;line-height:1.2;margin-bottom:6px}
   h1 b{color:var(--gold);font-weight:700}
   .sub{color:var(--pale);font-size:16px;max-width:780px;font-weight:400}
   .bar{height:6px;width:64px;background:var(--gold);margin:18px 0 30px;border-radius:0}
@@ -46,9 +62,17 @@
 
   /* section heads */
   .sec-head{margin:48px 0 18px}
-  h2.sec{font-size:14px;color:var(--teal);font-weight:700;margin-bottom:6px}
+  .sec-head.first{margin-top:8px}
+  h2.sec{font-family:var(--serif);font-size:15px;color:var(--teal);font-weight:700;margin-bottom:6px}
   .sec-head .line{height:2px;width:46px;background:var(--gold)}
   .sec-note{color:var(--pale);font-size:13px;margin-top:8px}
+
+  /* lead banner for the primary section */
+  .lead{
+    border:1px solid var(--gold); background:rgba(252,191,44,.07); border-radius:6px;
+    padding:16px 20px; margin-bottom:18px; font-size:14px; color:#f0e6c8;
+  }
+  .lead b{color:var(--gold);font-weight:600}
 
   /* functions grid */
   .functions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
@@ -58,7 +82,7 @@
     width:30px;height:30px;border-radius:4px;background:var(--gold);
     color:var(--dark);font-weight:700;font-size:15px;margin-bottom:10px;
   }
-  .func h3{font-size:15px;font-weight:600;color:var(--white);margin-bottom:4px}
+  .func h3{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--white);margin-bottom:4px}
   .func p{font-size:13px;color:var(--pale);line-height:1.65}
 
   /* golden / history list */
@@ -72,7 +96,7 @@
   /* script card */
   .card{border:1px solid var(--med);background:var(--fill);border-radius:6px;padding:24px 26px;margin-bottom:16px;position:relative}
   .card::before{content:"";position:absolute;top:0;right:0;width:4px;height:100%;background:var(--gold);border-radius:0 6px 6px 0}
-  .card h2.name{font-size:24px;font-weight:700;color:var(--white);margin-bottom:8px}
+  .card h2.name{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--white);margin-bottom:8px}
   .badge{display:inline-block;font-size:12px;font-weight:600;padding:4px 12px;border-radius:4px;margin-bottom:14px}
   .badge.balanced{background:rgba(136,201,196,.16);color:var(--teal);border:1px solid var(--teal)}
   .badge.regular{background:rgba(252,191,44,.14);color:var(--gold);border:1px solid var(--gold)}
@@ -100,14 +124,25 @@
   .col{border:1px solid var(--med);background:var(--fill);border-radius:6px;padding:4px 22px 16px}
   .col.allow{border-top:3px solid var(--teal)}
   .col.deny{border-top:3px solid var(--pink)}
-  .col h3{font-size:15px;font-weight:700;margin:16px 0 6px}
+  .col h3{font-family:var(--serif);font-size:16px;font-weight:700;margin:16px 0 10px}
   .col.allow h3{color:var(--teal)} .col.deny h3{color:var(--pink)}
   .col ul{list-style:none}
-  .col li{position:relative;padding:8px 22px 8px 0;font-size:14px;color:#e3e7f3;border-bottom:1px solid var(--med)}
+  .col li{position:relative;padding:12px 22px 12px 0;font-size:14px;color:#e3e7f3;border-bottom:1px solid var(--med)}
   .col li:last-child{border-bottom:0}
-  .col li::before{content:"";position:absolute;right:4px;top:15px;width:7px;height:7px;border-radius:0}
+  .col li::before{content:"";position:absolute;right:4px;top:18px;width:7px;height:7px;border-radius:0}
   .col.allow li::before{background:var(--teal)}
   .col.deny li::before{background:var(--pink)}
+
+  /* worked examples inside do/dont */
+  .exs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:9px}
+  .ex{
+    font-family:"Amiri",serif;font-size:1.6rem;line-height:1;
+    background:var(--paper);color:#16203f;border:1px solid #e6e1d2;
+    border-radius:4px;padding:5px 14px;display:inline-block;
+  }
+  .ex.bad{color:#b23047;border-color:#e3b3bd;text-decoration:line-through;text-decoration-color:#c0344f}
+  .ex.good{color:#1f7a5c;border-color:#bfe0d4}
+  .ex-lbl{font-size:11px;color:var(--pale);font-weight:600}
   .center-note{text-align:center;max-width:720px;margin:14px auto 0;font-size:13px;color:var(--pale);line-height:1.7}
 
   /* footer */
@@ -122,7 +157,7 @@
   @media(max-width:760px){
     .functions{grid-template-columns:1fr}
     .compare,.dodont{grid-template-columns:1fr}
-    h1{font-size:30px} .specimen{font-size:1.9rem}
+    h1{font-size:31px} .specimen{font-size:1.9rem}
   }
 </style>
 </head>
@@ -136,6 +171,50 @@
   <h1>قواعد <b>الكشيدة</b> في الخطوط العربية</h1>
   <p class="sub">الجماليات والضوابط: متى تُمدّ الحروف، وأين تُمنع، وكيف يختلف ذلك من خطٍّ إلى آخر.</p>
   <div class="bar"></div>
+
+  <!-- مواضع الإضافة والمنع (مرجع يومي) -->
+  <div class="sec-head first">
+    <h2 class="sec">أين تُوضع وأين تُمنع</h2>
+    <div class="line"></div>
+    <p class="sec-note">المرجع العملي اليومي · قواعد على مستوى الحروف (مستندة إلى قواعد النسخ)</p>
+  </div>
+  <div class="lead">المدّ (<span class="glyph">ـ</span>) في الأمثلة يوضّح <b>موضع الكشيدة</b>: في عمود «تُضاف» هو الشكل الصحيح المطلوب، وفي عمود «تُمنع» الشكل الأحمر المشطوب هو الخطأ يليه الصواب.</div>
+  <div class="dodont">
+    <div class="col allow">
+      <h3>مواضع تُضاف فيها</h3>
+      <ul>
+        <li>قبل التاء أو الهاء المربوطة في آخر الكلمة
+          <div class="exs"><span class="ex">مدرسـة</span></div></li>
+        <li>قبل آخر حرف من الكلمة
+          <div class="exs"><span class="ex">العمـل</span></div></li>
+        <li>قبل الألف المتطرفة
+          <div class="exs"><span class="ex">كتبنـا</span></div></li>
+        <li>قبل الراء
+          <div class="exs"><span class="ex">قمـر</span></div></li>
+        <li>بين النبرات لتُقرأ ولا تلتبس بالسين والشين
+          <div class="exs"><span class="ex">بنـت</span></div></li>
+        <li>على حرفَي السين والصاد (الأشكال الأولى والوسطى)
+          <div class="exs"><span class="ex">ســلام</span></div></li>
+      </ul>
+    </div>
+    <div class="col deny">
+      <h3>مواضع تُمنع فيها</h3>
+      <ul>
+        <li>قبل الواو
+          <div class="exs"><span class="ex bad">يقـول</span><span class="ex good">يقول</span></div></li>
+        <li>قبل الياء المنتهية
+          <div class="exs"><span class="ex bad">نبـي</span><span class="ex good">نبي</span></div></li>
+        <li>بين نبرة ونون منتهية
+          <div class="exs"><span class="ex bad">بيـن</span><span class="ex good">بين</span></div></li>
+        <li>بين نبرة وراء متصلة
+          <div class="exs"><span class="ex bad">نثـر</span><span class="ex good">نثر</span></div></li>
+        <li>بعد "ال" التعريف
+          <div class="exs"><span class="ex bad">الـكتاب</span><span class="ex good">الكتاب</span></div></li>
+        <li>بعد لام أول الكلمة، وبين لامين، وبين لام ودال
+          <div class="exs"><span class="ex bad">بلـد</span><span class="ex good">بلد</span></div></li>
+      </ul>
+    </div>
+  </div>
 
   <div class="intro">
     <b>الكشيدة</b> (أو التطويل، الحرف <span class="glyph">ـ</span>) هي مدّ الوصلة الأفقية بين حرفين متصلين.
@@ -223,37 +302,6 @@
     <p class="rule">تُستخدم الكشيدة بشكل هندسي منظّم، خاصة في الكوفي المربّع، حيث تصبح المدود امتدادات محسوبة تخدم البناء الهندسي للنص.</p>
     <div class="specimen-box"><div class="specimen-label">مثال توضيحي · مدود محسوبة ضمن شبكة هندسية</div><div class="specimen kufi">الخـط الكوفـي المربـع</div></div>
     <p class="note">المدّ هنا ليس للتزيين بل جزء من النظام الهندسي الذي يملأ الشبكة بانتظام.</p>
-  </div>
-
-  <!-- مواضع الإضافة والمنع -->
-  <div class="sec-head">
-    <h2 class="sec">أين تُوضع وأين تُمنع</h2>
-    <div class="line"></div>
-    <p class="sec-note">قواعد على مستوى الحروف (مستندة إلى قواعد النسخ)</p>
-  </div>
-  <div class="dodont">
-    <div class="col allow">
-      <h3>مواضع تُضاف فيها</h3>
-      <ul>
-        <li>قبل التاء أو الهاء المربوطة في آخر الكلمة</li>
-        <li>قبل آخر حرف من الكلمة</li>
-        <li>قبل الألف المتطرفة</li>
-        <li>قبل الراء</li>
-        <li>بين النبرات لمنع التباسها بالسين والشين</li>
-        <li>على حروف السين والصاد (الأشكال الأولى والوسطى)</li>
-      </ul>
-    </div>
-    <div class="col deny">
-      <h3>مواضع تُمنع فيها</h3>
-      <ul>
-        <li>قبل الواو</li>
-        <li>قبل الياء المنتهية</li>
-        <li>بين نبرة ونون منتهية</li>
-        <li>بين نبرة وراء متصلة</li>
-        <li>بعد "ال" التعريف</li>
-        <li>بعد لام أول الكلمة، وبين لامين في الوسط، وبين لام ودال</li>
-      </ul>
-    </div>
   </div>
 
   <!-- الأصيلة مقابل الرقمية -->
